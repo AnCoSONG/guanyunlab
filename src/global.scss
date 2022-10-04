@@ -1,0 +1,7 @@
+$designWidth: 1440;
+@function px2rem($px) {
+    @return calc($px / $designWidth) * 10 + rem;
+}
+
+$fgcolor: #141414;
+$bgcolor: white;
