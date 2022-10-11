@@ -34,6 +34,8 @@ const datalist = [data, data, data, data]
 </script>
 <style lang="scss" scoped>
 .project-grid {
+    padding-top: 80px;
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-row-gap: 40px;
@@ -53,5 +55,10 @@ const datalist = [data, data, data, data]
         grid-row-gap: 20px;
         grid-column-gap: 20px;
     }
+
+    @media (max-width: 700px) {
+        padding-top: 0px;
+    }
+
 }
 </style>

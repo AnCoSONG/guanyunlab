@@ -1,7 +1,7 @@
 <template>
     <SectionTitle en="Members" cn="人员"></SectionTitle>
     <div class="hero-info-wrapper">
-        <img :src="tempImg" alt="" class="hero_img">
+        <img :src="data.hero_avatar" alt="" class="hero_img">
         <div class="info">
             <div class="en-name">{{data.name.en}}</div>
             <div class="cn-name">{{data.name.cn}}</div>
@@ -26,7 +26,7 @@ withDefaults(defineProps<{
     data: () => ({
         id: 123,
         avatar: 'https://dummyimage.com/600x600/f2f2f2/141414&text=logo',
-        hero_avatar: 'https://dummyimage.com/1200x1200/f2f2f2/141414&text=logo',
+        hero_avatar: tempImg,
         name: {
             cn: '陶冶',
             en: 'Ye Tao'

@@ -58,6 +58,8 @@ const data = {
         'https://dummyimage.com/600x400/000/ffffff&text=Hero3'
     ]
 }
+
+//todo: 更新viewcount
 </script>
 <style lang="scss" scoped>
 .item-main {

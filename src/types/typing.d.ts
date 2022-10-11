@@ -31,7 +31,6 @@ declare type Paper = {
     title: string,
     venue: string,
     href: string
-
 }
 
 declare type Member = {
