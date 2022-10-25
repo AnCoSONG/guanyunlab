@@ -1,6 +1,6 @@
 <template>
-    <div class="rich-text-wrapper" v-html="sanitizedHtml">
-    </div>
+    <article class="rich-text-wrapper" v-html="sanitizedHtml">
+    </article>
 </template>
 <script setup lang='ts'>
 import { computed } from 'vue';
@@ -96,7 +96,7 @@ const sanitizedHtml = computed(() => {
     }
 
     &:deep(img) {
-        width: 100%;
+        max-width: 100%;
         display: block;
         margin-top: 24px;
         box-sizing: border-box;
@@ -108,12 +108,23 @@ const sanitizedHtml = computed(() => {
             filter: opacity(0.5);
         }
 
+        &.full {
+            width: 100%;
+        }
+
     }
 
     &:deep(iframe) {
         aspect-ratio: 16/9;
         width: 100%;
         height: auto;
+    }
+
+    &:deep(blockquote) {
+        border-left: 2px solid #ccc;
+        padding-left: 1rem;
+        margin-left: 0;
+        color: #747474;
     }
 }
 </style>
