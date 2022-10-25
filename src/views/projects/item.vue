@@ -36,7 +36,7 @@ export default {
 import { computed } from '@vue/reactivity';
 import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { apiFetchProject } from '../../api';
+import { apiFetchProject, apiIncrementProjectView } from '../../api';
 import HeroSwiper from '../../components/HeroSwiper.vue';
 import Main from '../../components/Main.vue';
 import MainTitle from '../../components/MainTitle.vue';
@@ -66,7 +66,15 @@ const heroImgs = computed(() => {
     return []
 })
 
-//todo: 更新viewcount
+//todo: 
+
+onMounted(async () => {
+    // 如果localStorage中没有该项目被查看过的标识，则更新该项目的浏览量
+    if (!localStorage.getItem(props.id)) {
+        localStorage.setItem(props.id, 'true')
+        await apiIncrementProjectView(props.id)
+    }
+})
 </script>
 <style lang="scss" scoped>
 .item-main {

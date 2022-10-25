@@ -156,3 +156,17 @@ export const apiFetchContactHypertexts = async () => {
         };
     }
 };
+
+export const apiIncrementProjectView = async (id: string) => {
+    const res = await request
+        .post("/project/updateViewCount" + id)
+        .catch((err) => {
+            console.log(err);
+            return null;
+        });
+    if (res) {
+        return res.data;
+    } else {
+        return null;
+    }
+}
