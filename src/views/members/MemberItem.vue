@@ -2,34 +2,19 @@
     <div class="member" @click="routeTo(info.id)">
         <img :src="info.avatar" class="avatar">
         <div class="info">
-            <div class="cn-name">{{info.name.cn}}</div>
-            <div class="en-name">{{info.name.en}}</div>
+            <div class="cn-name">{{info.cn_name}}</div>
+            <div class="en-name">{{info.en_name}}</div>
             <div class="title">
-                {{info.title.en}} / {{info.title.cn}}
+                {{info.en_title}} / {{info.cn_title}}
             </div>
         </div>
     </div>
 </template>
 <script setup lang='ts'>
 import { useRouter } from 'vue-router'
-withDefaults(defineProps<{
+defineProps<{
     info: Member
-}>(), {
-    info: () => ({
-        id: 123,
-        avatar: 'https://dummyimage.com/600x600/f2f2f2/141414&text=logo',
-        hero_avatar: 'https://dummyimage.com/1200x1200/f2f2f2/141414&text=logo',
-        name: {
-            cn: '吴文起',
-            en: 'Wenqi Wu'
-        },
-        title: {
-            cn: '博士',
-            en: 'Ph.D',
-        },
-        hypertext: '<h2>Test / 测试</h2><p>方面方面方面</p><b>哈喽</b><hr><h2>Publications / 已发表论文</h2><ul><li><a href="https://www.baidu.com">A-line: 4D Printing Morphing Linear Composite Structures. CHI 2019</a></li></ul><hr><img src="https://dummyimage.com/600x400/000/ffffff&text=Hero1"></img><img src="https://dummyimage.com/800x400/000/ffffff&text=Hero3"></img>'
-    })
-})
+}>()
 
 const router = useRouter()
 const routeTo = (id: ID) => {

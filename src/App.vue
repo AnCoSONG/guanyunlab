@@ -7,7 +7,7 @@ import HeaderBodyFooter from './layouts/HeaderBodyFooter.vue';
     <HeaderBodyFooter>
       <RouterView v-slot="{ Component }">
         <template v-if="Component">
-            <KeepAlive>
+            <KeepAlive exclude="projectItem,newsItem,memberItem">
                 <Suspense>
                     <component :is="Component"></component>
                     <template #fallback>

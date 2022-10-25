@@ -17,26 +17,12 @@
 import Main from '../../components/Main.vue';
 import SectionTitle from '../../components/SectionTitle.vue';
 import InfoBoxWithUpperLine from '../../components/InfoBoxWithUpperLine.vue';
-import { onMounted, ref } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
+import { apiFetchPapers } from '../../api';
 
-const publicationData: Paper[] = [
-    {
-        id: 1,
-        img: 'https://dummyimage.com/600x400/000/ffffff&text=Paper1',
-        title: 'MorphingCircuit: An Integrated Design, Simulation, and Fabrication Workflow for Self-morphing Electronics',
-        authors: 'Guanyun Wang, Fang Qin, Haolin Liu, Ye Tao, Yang Zhang, Yongjie Jessica Zhang, Lining Yao',
-        venue: 'Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous TechnologiesVolume 4Issue 4December 2020 Article No.: 157pp 1–26',
-        href: 'https://www.baidu.com'
-    },
-    {
-        id: 1,
-        img: 'https://dummyimage.com/600x400/000/ffffff&text=Paper1',
-        title: 'MorphingCircuit: An Integrated Design, Simulation, and Fabrication Workflow for Self-morphing Electronics',
-        authors: 'Guanyun Wang, Fang Qin, Haolin Liu, Ye Tao, Yang Zhang, Yongjie Jessica Zhang, Lining Yao',
-        venue: 'Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous TechnologiesVolume 4Issue 4December 2020 Article No.: 157pp 1–26',
-        href: 'https://www.baidu.com'
-    }
-]
+const publicationData: Publication[] = reactive([])
+const res = await apiFetchPapers()
+publicationData.splice(0, publicationData.length, ...res)
 
 const openPaper = (to: string) => {
     window.open(to, "_blank")

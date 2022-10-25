@@ -2,21 +2,21 @@
     <SectionTitle en="Members" cn="人员" />
     <Main>
         <div class="wrapper">
-            <MainTitle type="middle" en="Teacher" cn="老师" class="subtitle"/>
+            <MainTitle type="middle" en="Teacher" cn="老师" class="subtitle" />
             <div class="list">
-                <MemberItem v-for="item in [1, 2, 3, 4, 5]" class="item"/>
+                <MemberItem v-for="item in members.teacher" class="item" :info="item" />
             </div>
         </div>
         <div class="wrapper">
-            <MainTitle type="middle" en="Student" cn="学生" class="subtitle"/>
+            <MainTitle type="middle" en="Student" cn="学生" class="subtitle" />
             <div class="list">
-                <MemberItem v-for="item in [1, 2, 3, 4, 5, 7, 1231,231,]" class="item"/>
+                <MemberItem v-for="item in members.student" class="item" :info="item"/>
             </div>
         </div>
         <div class="wrapper">
-            <MainTitle type="middle" en="Intern" cn="实习生" class="subtitle"/>
+            <MainTitle type="middle" en="Intern" cn="实习生" class="subtitle" />
             <div class="list">
-                <MemberItem v-for="item in [1, 2, 3, 4, 5, 7, 6, 8]" class="item"/>
+                <MemberItem v-for="item in members.intern" class="item" :info="item"/>
             </div>
         </div>
     </Main>
@@ -26,6 +26,14 @@ import SectionTitle from '../../components/SectionTitle.vue';
 import Main from '../../components/Main.vue';
 import MainTitle from '../../components/MainTitle.vue';
 import MemberItem from './MemberItem.vue';
+import { apiFetchMembers } from '../../api';
+import { reactive } from 'vue';
+
+const members = reactive<{ student: Member[], teacher: Member[], intern: Member[] }>({ student: [], teacher: [], intern: [] })
+const res = await apiFetchMembers()
+members.student = [...res.student]
+members.teacher = [...res.teacher]
+members.intern = [...res.intern]
 
 </script>
 <style lang="scss" scoped>
@@ -67,5 +75,4 @@ import MemberItem from './MemberItem.vue';
         }
     }
 }
-
 </style>

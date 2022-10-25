@@ -9,3 +9,8 @@ export function debounce(fun: any, delay: number) {
         }, delay)
     }
 }
+
+export const toMonthYear = (date: string) => {
+    // english month and numeric year
+    return new Date(date).toLocaleString('en-US', { month: 'long', year: 'numeric' })
+}

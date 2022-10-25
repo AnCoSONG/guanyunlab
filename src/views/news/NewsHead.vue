@@ -4,7 +4,7 @@
             {{title}}
         </div> 
         <div class="news-date">
-            UPDATE: {{date}}
+            UPDATE: {{ new Date(date).toLocaleDateString() }}
         </div>
     </div>
 </template>
@@ -33,11 +33,13 @@ defineProps<{title: string, date: string}>()
     .news-title {
         font-size: 28px;
         font-weight: 600;
+        line-height: 1.6;
     }
 
     .news-date {
         font-size: 14px;
         color: #4c4c4c;
+        line-height: 1.6;
     }
 }
 </style>
