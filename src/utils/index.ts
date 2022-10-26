@@ -14,3 +14,29 @@ export const toMonthYear = (date: string) => {
     // english month and numeric year
     return new Date(date).toLocaleString('en-US', { month: 'long', year: 'numeric' })
 }
+
+const getViewData = () => {
+    const data = localStorage.getItem('viewData')
+    if (data) {
+        return JSON.parse(data)
+    }
+    return null
+}
+
+export const isViewed = (id: string) => {
+    const data = getViewData()
+    if (data) {
+        return data[id]
+    }
+    return false
+}
+
+export const setViewed = (id: string) => {
+    const data = getViewData()
+    if (data) {
+        data[id] = true
+        localStorage.setItem('viewData', JSON.stringify(data))
+    } else {
+        localStorage.setItem('viewData', JSON.stringify({ [id]: true }))
+    }
+}

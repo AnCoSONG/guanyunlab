@@ -43,7 +43,7 @@ import MainTitle from '../../components/MainTitle.vue';
 import RichTextWrapper from '../../components/RichTextWrapper.vue';
 import ZeroFiveLine from '../../components/ZeroFiveLine.vue';
 import NotFound from '../404/index.vue';
-import { toMonthYear } from '../../utils';
+import { isViewed, setViewed, toMonthYear } from '../../utils';
 const router = useRouter()
 const props = defineProps<{
     id: string
@@ -66,13 +66,14 @@ const heroImgs = computed(() => {
     return []
 })
 
-//todo: 
-
 onMounted(async () => {
     // 如果localStorage中没有该项目被查看过的标识，则更新该项目的浏览量
-    if (!localStorage.getItem(props.id)) {
-        localStorage.setItem(props.id, 'true')
+    if (!isViewed(props.id)) {
         await apiIncrementProjectView(props.id)
+        setViewed(props.id)
+        console.log('view success')
+    } else {
+        console.log('have viewed')
     }
 })
 </script>
