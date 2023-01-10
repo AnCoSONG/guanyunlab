@@ -1,16 +1,17 @@
 <template>
     <div class="member" @click="routeTo(info.id)">
-        <img :src="info.avatar" class="avatar">
+        <img :src="info.avatar" class="avatar" ref="avatarRef">
         <div class="info">
-            <div class="cn-name">{{info.cn_name}}</div>
-            <div class="en-name">{{info.en_name}}</div>
+            <div class="cn-name">{{info.cn_name}} / {{ info.en_name }} </div>
+            <!-- <div class="en-name">{{info.en_name}}</div> -->
             <div class="title">
-                {{info.en_title}} / {{info.cn_title}}
+                {{info.cn_title}} / {{info.en_title}}
             </div>
         </div>
     </div>
 </template>
 <script setup lang='ts'>
+import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router'
 defineProps<{
     info: Member
@@ -20,6 +21,14 @@ const router = useRouter()
 const routeTo = (id: ID) => {
     router.push(`/members/${id}`)
 }
+
+const avatarRef = ref<HTMLImageElement|null>(null)
+onMounted(() => {
+    setTimeout(() => {
+        const rect = avatarRef.value!.getBoundingClientRect()
+        avatarRef.value!.style.height = rect!.width + 'px'
+    }, 0 )
+})
 </script>
 <style lang="scss" scoped>
 .member {
@@ -38,7 +47,7 @@ const routeTo = (id: ID) => {
         object-fit: cover;
         display: block;
         position: relative;
-        border: 1px solid #1d1d1d;
+        // border: 1px solid #1d1d1d;
         margin-bottom: 6px;
         user-select: none;
     }

@@ -1,20 +1,20 @@
 <template>
-    <SectionTitle en="Members" cn="人员" />
+    <SectionTitle en="Members" cn="成员" />
     <Main>
         <div class="wrapper">
-            <MainTitle type="middle" en="Teacher" cn="老师" class="subtitle" />
+            <MainTitle type="middle" en="老师" cn="Teacher" class="subtitle" />
             <div class="list">
                 <MemberItem v-for="item in members.teacher" class="item" :info="item" />
             </div>
         </div>
         <div class="wrapper">
-            <MainTitle type="middle" en="Student" cn="学生" class="subtitle" />
+            <MainTitle type="middle" en="学生" cn="Student" class="subtitle" />
             <div class="list">
                 <MemberItem v-for="item in members.student" class="item" :info="item"/>
             </div>
         </div>
         <div class="wrapper">
-            <MainTitle type="middle" en="Intern" cn="实习生" class="subtitle" />
+            <MainTitle type="middle" en="实习生" cn="Intern" class="subtitle" />
             <div class="list">
                 <MemberItem v-for="item in members.intern" class="item" :info="item"/>
             </div>

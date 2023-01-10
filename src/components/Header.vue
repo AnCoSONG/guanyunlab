@@ -1,19 +1,19 @@
 <template>
     <header class="global-header">
         <div class="labname">
-            <div class="contact">
-                <span class="labtitle" @click="routeTo('/')"> {{labname}} </span>
-                <span style="display: inline-block;">&nbsp;|&nbsp;</span>
+            <div class="contact" @click="routeTo('/')">
+                <span class="labtitle"> {{labname}} </span>
+                <span style="display: inline-block;" class="labsep">&nbsp;|&nbsp;</span>
                 <span class="labdesc">{{desc}}</span>
             </div>
             <div class="compact">
                 <div class="line1" @click="routeTo('/')">{{labname}}</div>
-                <div class="line2">{{desc}}</div>
+                <div class="line2" @click="routeTo('/')">{{desc}}</div>
             </div>
         </div>
         <div class="subpages">
             <div class="btns">
-                <TextButton class="subpage-item" v-for="item, index in subpages" :text="item" @click="routeTo(`/${item}`)"/>
+                <TextButton class="subpage-item" v-for="item, index in subpages" :text="item.text" @click="routeTo(`/${item.href}`)"/>
             </div>
             <div class="menu">
                 <div class="menu-item" @click="menuShow = true">
@@ -23,7 +23,7 @@
                 </div>
                 <Teleport to="body">
                     <div class="menu-content" :class="{show: menuShow}">
-                        <TextButton class="subpage-item" v-for="item, index in subpages" :text="item" :href="item" @click="routeTo(`/${item}`)"/>
+                        <TextButton class="subpage-item" v-for="item, index in subpages" :text="item.text" :href="item.href" @click="routeTo(`/${item.href}`)"/>
                         <div class="close-btn" @click="menuShow = false">×</div>
                     </div>
                 </Teleport>
@@ -41,11 +41,26 @@ defineProps<{
     desc: string,
 }>()
 const subpages = [
-    'about',
-    'projects',
-    'publications',
-    'members',
-    'contact'
+    {
+        text: 'ABOUT/关于',
+        href: 'about'
+    },
+    {
+        text: 'PROJECTS/项目',
+        href: 'projects'
+    },
+    {
+        text: 'PUBLICATIONS/出版物',
+        href: 'publications'
+    },
+    {
+        text: 'MEMBERS/成员',
+        href: 'members'
+    },
+    {
+        text: 'CONTACT/联系',
+        href: 'contact'
+    },
 ]
 
 const menuShow = ref(false)
@@ -101,16 +116,10 @@ onUnmounted(() => {
         }
 
         .contact {
-            .labtitle {
+            .labtitle, .labsep, .labdesc {
                 &:hover {
                     color: #aaa;
                     cursor: pointer;
-                }
-            }
-
-            .labdesc {
-                &:hover {
-                    cursor:default;
                 }
             }
         }
@@ -118,13 +127,14 @@ onUnmounted(() => {
         .compact {
             .line1 {
                 display: inline-block;
+                cursor: pointer;
                 &:hover {
                     color: #aaa;
                     cursor: pointer;
                 }
             }
             .line2 {
-                
+                cursor: pointer;
                 font-size: 12px;
                 color: #aaa;
                 // min-width: 310px;

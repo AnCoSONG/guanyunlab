@@ -1,5 +1,5 @@
 <template>
-    <SectionTitle en="Publications" cn="已发表论文"></SectionTitle>
+    <SectionTitle en="Publications" cn="出版物"></SectionTitle>
     <Main>
         <InfoBoxWithUpperLine v-for="item, index in publicationData">
             <div class="paper-item" >

@@ -4,7 +4,7 @@
         <div class="item-main" v-if="data">
             <div class="basic-info">
                 <div class="name-date-views">
-                    <MainTitle type="same" :en="data.en_name" :cn="data.cn_name" />
+                    <MainTitle type="same" :en="data.cn_name" :cn="data.en_name" />
                     <div class="date">{{ toMonthYear(data.create_date) }}</div>
                     <div class="views">({{data.view_count}} Views)</div>
                 </div>
@@ -23,6 +23,7 @@
             <div class="hyper-text-wrapper">
                 <RichTextWrapper :html="data.hypertext" />
             </div>
+            <!-- todo: gallery -->
         </div>
         <NotFound v-else></NotFound>
     </Main>

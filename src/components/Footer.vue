@@ -3,9 +3,9 @@
         <zero-five-line/>
         <div class="main-footer">
             <div class="text">
-                Copyright &copy; Yasuaki Kakehi Laboratory, The University of Tokyo / 東京大学筧康明研究室, All rights reserved.
+                Copyright &copy; Guanyun Lab, Zhejiang University / 浙江大学智慧形态实验室, All rights reserved.
             </div>
-            <img class="logo" src="https://dummyimage.com/48x48/141414/f5f5f5&text=logo"/>
+            <!-- <img class="logo" src="https://dummyimage.com/48x48/141414/f5f5f5&text=logo"/> -->
         </div>
     </footer>
 </template>

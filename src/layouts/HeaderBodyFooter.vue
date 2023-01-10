@@ -1,5 +1,5 @@
 <template>
-    <Header labname="Morphing Matter Lab" desc="Directed by Prof. Lining Yao at Carnegie Mellon University" />
+    <Header labname="智慧形态实验室" desc="Guanyun Lab" />
     <div class="body">
         <slot></slot>
     </div>

@@ -1,10 +1,10 @@
 <template>
-    <SectionTitle en="Members" cn="人员" v-if="data" />
+    <SectionTitle en="Members" cn="成员" v-if="data" />
     <div class="hero-info-wrapper" v-if="data">
         <img :src="data.hero_avatar" alt="" class="hero_img">
         <div class="info">
-            <div class="en-name">{{ data.en_name }}</div>
             <div class="cn-name">{{ data.cn_name }}</div>
+            <div class="en-name">{{ data.en_name }}</div>
             <div class="title"> <b>{{ data.cn_title }}</b> / {{ data.en_title }}</div>
         </div>
     </div>
@@ -39,8 +39,8 @@ if (res) {
 .hero-info-wrapper {
     background-color: #f2f2f2;
     padding-top: 40px;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 14%;
+    padding-right: 14%;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: 3fr 7fr;
@@ -50,7 +50,7 @@ if (res) {
     width: 100%;
 
     @media (max-width: 700px) {
-        padding-left: 12px;
+        padding-left: 24px;
         padding-right: 24px;
         padding-top: 24px;
         margin-top: 13px;
@@ -87,10 +87,10 @@ if (res) {
             margin-bottom: 60px;
         }
 
-        .en-name {
+        .cn-name {
             color: black;
             font-size: 20px;
-            line-height: 1.6;
+            line-height: 1.3;
             font-weight: bold;
 
             @media (max-width: 350px) {
@@ -99,9 +99,9 @@ if (res) {
             }
         }
 
-        .cn-name {
+        .en-name {
             color: black;
-            font-size: 18px;
+            font-size: 16px;
             line-height: 1.6;
             font-weight: bold;
 

@@ -1,6 +1,6 @@
 <template>
     <div class="news">
-        <MainTitle en="News" cn="新闻" type="large" class="news-title"></MainTitle>
+        <MainTitle en="新闻" cn="News" type="large" class="news-title"></MainTitle>
         <InfoBoxWithUpperLine v-for="item, index in newss" :last="index == newss.length - 1">
             <div class="news-item">
                 <div class="news-item-title" @click="openNews(item.id)">{{ item.title }}</div>
@@ -15,6 +15,7 @@ import InfoBoxWithUpperLine from '../../components/InfoBoxWithUpperLine.vue';
 import { useRouter } from 'vue-router';
 import { apiFetchHomeNews } from '../../api';
 import { reactive } from 'vue';
+import SectionTitle from '../../components/SectionTitle.vue';
 // fetch news
 const newss = reactive<News[]>([])
 const res = await apiFetchHomeNews(10)
@@ -37,7 +38,7 @@ const openNews = (id: ID) => {
     }
 
     .news-item {
-        padding-left: 20px;
+        // padding-left: 20px;
         padding-right: 20px;
         display: flex;
         flex-flow: wrap column;
@@ -55,11 +56,12 @@ const openNews = (id: ID) => {
         .news-item-title {
             margin-bottom: 8px;
             cursor: pointer;
+            font-size: 16px;
 
         }
 
         .news-item-date {
-            font-size: 14px;
+            font-size: 13px;
             color: #454545;
             user-select: none;
         }

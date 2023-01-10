@@ -2,7 +2,9 @@
     <HeroSwiper :hero-imgs="heros" enable-max-height/>
     <Main>
         <CCC></CCC>
-        <HomeSwiper></HomeSwiper>
+    </Main>
+    <HomeSwiper></HomeSwiper>
+    <Main>
         <News></News>
     </Main>
 </template>

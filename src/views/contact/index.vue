@@ -2,7 +2,7 @@
     <SectionTitle en="Contact" cn="联系"></SectionTitle>
     <Main>
         <ZeroFiveLine></ZeroFiveLine>
-        <div class="wrapper">
+        <!-- <div class="wrapper">
             <div class="column">
                 <div class="title">
                     <div>如果你正在寻求一个研究职位：</div>
@@ -63,8 +63,10 @@
                 <div>* Please check your network connection if the above content does not appear.
                 </div>
             </div>
+            <img src="https://dummyimage.com/600x400/c2c2c2/000000&text=Location" alt="实验室位置, The location of lab" style="width: 100%;display: block;">
 
-        </div>
+        </div> -->
+        <RichTextWrapper :html="recruitHtml" />
     </Main>
 </template>
 <script setup lang='ts'>

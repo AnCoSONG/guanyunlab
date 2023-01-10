@@ -47,8 +47,8 @@ heroImgs.push(...res.map((img) => ({
 
 .desc {
     margin-top: 24px;
-    font-size: 16px;
-    line-height: 24px;
+    // font-size: 13px;
+    // line-height: 24px;
     color: #4c4c4c;
 
     p {

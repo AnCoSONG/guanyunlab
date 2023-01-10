@@ -2,7 +2,7 @@
     <div class="ccc">
         <div class="construct column">
             <div class="title">
-                Construct
+                材料属性/Material Mechanism
             </div>
             <div class="desc">
                 变形机制的发现涉及跨尺度的材料成分、结构、力学和几何学的动手实验。
@@ -12,11 +12,11 @@
                 structure, mechanics, and geometry across scales.
             </div>
             <div class="divider-line"></div>
-            <Keywords v-for="item in constructs" :keywords="item"></Keywords>
+            <!-- <Keywords v-for="item in constructs" :keywords="item"></Keywords> -->
         </div>
         <div class="compute column">
             <div class="title">
-                Compute
+                制造技术/Personal Fabrication
             </div>
             <div class="desc">
                 通过基于几何和物理的分析、优化和机器学习对变形物质进行计算设计，使变形物质民主化。
@@ -26,11 +26,11 @@
                 and machine learning, to democratize morphing matter.
             </div>
             <div class="divider-line"></div>
-            <Keywords v-for="item in computes" :keywords="item"></Keywords>
+            <!-- <Keywords v-for="item in computes" :keywords="item"></Keywords> -->
         </div>
         <div class="contextualize column">
             <div class="title">
-                Contextualize
+                应用场景/Application Area
             </div>
             <div class="desc">
                 以人与自然为中心的设计，展现变形物质的社会影响力，平衡好奇心与现实、经验与实用性、工程与设计。
@@ -40,7 +40,7 @@
                 curiosity and reality, experience and utility, engineering and design.
             </div>
             <div class="divider-line"></div>
-            <Keywords v-for="item in constructs" :keywords="item"></Keywords>
+            <!-- <Keywords v-for="item in constructs" :keywords="item"></Keywords> -->
         </div>
         <!-- <div class="compute column">234</div>
         <div class="contextualize column">345</div> -->

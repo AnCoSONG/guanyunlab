@@ -52,26 +52,26 @@ defineProps<{
         color: #232323;
         
         .en {
-            font-size: 28px;
+            font-size: 24px;
         }
 
         .slash {
-            font-size: 28px;
+            font-size: 24px;
         }
 
         .cn {
-            font-size: 28px;
+            font-size: 24px;
         }
 
         @media (min-width: 1440px) {
             .en, .slash, .cn {
-                font-size: 32px;
+                font-size: 28px;
             }
         }
 
         @media (max-width: 700px) {
             .en, .slash, .cn {
-                font-size: 24px;
+                font-size: 20px;
             }
         }
     }
