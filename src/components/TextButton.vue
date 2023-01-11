@@ -14,6 +14,7 @@ defineProps<{
 .text-btn {
     position: relative;
     padding: 0px 2px;
+    font-size: 14px;
     box-sizing: border-box;
 
     &:hover {

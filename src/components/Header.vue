@@ -117,6 +117,7 @@ onUnmounted(() => {
 
         .contact {
             .labtitle, .labsep, .labdesc {
+                font-size: 14px;
                 &:hover {
                     color: #aaa;
                     cursor: pointer;
