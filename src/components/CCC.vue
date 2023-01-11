@@ -2,7 +2,7 @@
     <div class="ccc">
         <div class="construct column">
             <div class="title">
-                材料属性/Material Mechanism
+                材料属性 / Material Mechanism
             </div>
             <div class="desc">
                 变形机制的发现涉及跨尺度的材料成分、结构、力学和几何学的动手实验。
@@ -16,7 +16,7 @@
         </div>
         <div class="compute column">
             <div class="title">
-                制造技术/Personal Fabrication
+                制造技术 / Personal Fabrication
             </div>
             <div class="desc">
                 通过基于几何和物理的分析、优化和机器学习对变形物质进行计算设计，使变形物质民主化。
@@ -30,7 +30,7 @@
         </div>
         <div class="contextualize column">
             <div class="title">
-                应用场景/Application Area
+                应用场景 / Application Area
             </div>
             <div class="desc">
                 以人与自然为中心的设计，展现变形物质的社会影响力，平衡好奇心与现实、经验与实用性、工程与设计。
@@ -150,7 +150,7 @@ const contextualizes = [
             max-width: 100%;
             margin-right: 0px;
             // max-width: 100%;;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
 
             .divider-line {
                 margin: 18px 0px !important;
@@ -160,6 +160,11 @@ const contextualizes = [
         .title {
             font-size: 18px;
             margin-bottom: 24px;
+
+            @media (max-width: 700px) {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
         }
 
         .desc {

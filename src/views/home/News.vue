@@ -58,10 +58,15 @@ const openNews = (id: ID) => {
             cursor: pointer;
             font-size: 16px;
 
+            @media (max-width: 700px) {
+                font-size: 14px;
+                margin-bottom: 4px;
+            }
+
         }
 
         .news-item-date {
-            font-size: 13px;
+            font-size: 12px;
             color: #454545;
             user-select: none;
         }

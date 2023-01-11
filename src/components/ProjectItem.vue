@@ -37,7 +37,7 @@ onMounted(() => {
     setTimeout(() => {
         const rect = projectItemImg.value!.getBoundingClientRect()
         projectItemImg.value!.style.height = rect.width + 'px'
-    }, 0)
+    }, 10)
 })
 
 const routeTo = (id: string) => {
@@ -69,7 +69,7 @@ const routeTo = (id: string) => {
 
         .only-title {
             color: #575757;
-            font-size: 10px;
+            font-size: 13px;
             cursor: pointer;
         }
 
@@ -86,7 +86,7 @@ const routeTo = (id: string) => {
             }
 
             .short-abstract {
-                font-size: 10px;
+                font-size: 12px;
                 line-height: 16px;
                 margin: 6px 0px;
 
@@ -97,7 +97,7 @@ const routeTo = (id: string) => {
             }
 
             .author-date-views {
-                font-size: 10px;
+                font-size: 12px;
                 line-height: 16px;
 
                 .first-author {

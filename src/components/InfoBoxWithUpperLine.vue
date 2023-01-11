@@ -21,6 +21,10 @@ defineProps<{last?: boolean}>()
     .content {
         padding: 20px 0px;
         box-sizing: border-box;
+
+        @media (max-width: 700px) {
+            padding: 16px 0px;
+        }
     }
     &:last-child {
         // border-bottom: 1px solid #14141488;
