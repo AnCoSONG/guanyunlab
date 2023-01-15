@@ -42,23 +42,23 @@ defineProps<{
 }>()
 const subpages = [
     {
-        text: 'ABOUT/关于',
+        text: '关于/ABOUT',
         href: 'about'
     },
     {
-        text: 'PROJECTS/项目',
+        text: '项目/PROJECTS',
         href: 'projects'
     },
     {
-        text: 'PUBLICATIONS/出版物',
+        text: '出版物/PUBLICATIONS',
         href: 'publications'
     },
     {
-        text: 'MEMBERS/成员',
+        text: '成员/MEMBERS',
         href: 'members'
     },
     {
-        text: 'CONTACT/联系',
+        text: '联系/CONTACT',
         href: 'contact'
     },
 ]
@@ -117,7 +117,8 @@ onUnmounted(() => {
 
         .contact {
             .labtitle, .labsep, .labdesc {
-                font-size: 14px;
+                font-size: 16px;
+                font-weight: 600;
                 &:hover {
                     color: #aaa;
                     cursor: pointer;
@@ -129,6 +130,7 @@ onUnmounted(() => {
             .line1 {
                 display: inline-block;
                 cursor: pointer;
+                font-size: 16px;
                 &:hover {
                     color: #aaa;
                     cursor: pointer;

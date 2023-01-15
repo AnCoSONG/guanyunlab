@@ -6,10 +6,10 @@
         >
         <div class="info">
             <div v-if="mode == 'simple'" class="only-title" @click="routeTo(project_data.id)">
-                {{ project_data.en_name }} / {{ project_data.cn_name }}
+                {{ project_data.cn_name }} / {{ project_data.en_name }}
             </div>
             <div v-if="mode == 'complete'" class="complete-info">
-                <div class="title" @click="routeTo(project_data.id)">{{ project_data.en_name }}</div>
+                <div class="title" @click="routeTo(project_data.id)">{{ project_data.cn_name }} / {{ project_data.en_name }}</div>
                 <div class="short-abstract">{{ project_data.short_abstract.length > 100 ? project_data.short_abstract.slice(0, 100) + '...' : project_data.short_abstract }}
                     <router-link class="more-link" :to="`/projects/${project_data.id}`">More ›</router-link>
                 </div>
@@ -23,9 +23,10 @@
     </div>
 </template>
 <script setup lang='ts'>
-import { onMounted, ref } from 'vue';
+import { onActivated, onDeactivated, onMounted, onUnmounted, ref } from 'vue';
 import { toMonthYear } from '../utils';
 import { useRouter } from 'vue-router';
+import throttle from 'lodash.throttle'
 const router = useRouter()
 defineProps<{
     project_data: ProjectListItem,
@@ -33,11 +34,48 @@ defineProps<{
 }>()
 
 const projectItemImg = ref<HTMLImageElement|null>(null)
-onMounted(() => {
-    setTimeout(() => {
+let timeoutId: string | number | NodeJS.Timeout | undefined;
+let isListened = false
+
+const onResize = throttle(() => {
+    const rect = projectItemImg.value!.getBoundingClientRect()
+    projectItemImg.value!.style.height = rect.width + 'px'
+}, 100)
+
+const setupWatcher = () => {
+    timeoutId = setTimeout(() => {
         const rect = projectItemImg.value!.getBoundingClientRect()
         projectItemImg.value!.style.height = rect.width + 'px'
     }, 10)
+    if(isListened) return
+    window.addEventListener('resize', onResize)
+    isListened = true
+}
+onMounted(() => {
+    console.log('mounted')
+    setupWatcher()
+})
+
+onActivated(() => {
+    console.log('activated')
+    setupWatcher()
+})
+
+const clearWatcher = () => {
+    clearTimeout(timeoutId)
+    if(!isListened) return
+    window.removeEventListener('resize', onResize)
+    isListened = false
+}
+
+onUnmounted(() => {
+    console.log('unmounted')
+    clearWatcher()
+})
+
+onDeactivated(() => {
+    console.log('deactivated')
+    clearWatcher()
 })
 
 const routeTo = (id: string) => {

@@ -3,7 +3,7 @@
         <zero-five-line/>
         <div class="main-footer">
             <div class="text">
-                Copyright &copy; Guanyun Lab, Zhejiang University / 浙江大学智慧形态实验室, All rights reserved.
+                Copyright &copy; 浙江大学智慧形态实验室 / Guanyun Lab, Zhejiang University, All rights reserved.
             </div>
             <!-- <img class="logo" src="https://dummyimage.com/48x48/141414/f5f5f5&text=logo"/> -->
         </div>
