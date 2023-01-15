@@ -186,6 +186,10 @@ onUnmounted(() => {
 
             >* {
                 margin: 0px 20px;
+
+                &:last-child {
+                    margin-right: 0px;
+                }
             }
 
         }
