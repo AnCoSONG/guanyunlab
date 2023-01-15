@@ -14,7 +14,7 @@
                     <router-link class="more-link" :to="`/projects/${project_data.id}`">More ›</router-link>
                 </div>
                 <div class="author-date-views">
-                    <span class="first-author">{{ project_data.first_author }}</span> |
+                    <!-- <span class="first-author">{{ project_data.first_author }}</span> | -->
                     <span>{{ toMonthYear(project_data.create_date) }}</span>
                     <!-- | <span>{{ Number(project_data.view_count).toLocaleString('en') }} Views</span> -->
                 </div>
