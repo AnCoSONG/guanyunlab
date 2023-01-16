@@ -149,10 +149,7 @@ export const apiFetchContactHypertexts = async () => {
         return res.data;
     } else {
         return {
-            collaboration_sponsor_hypertext: "",
-            info_hypertext: "",
-            lab_office_hypertext: "",
-            recruit_hypertext: "",
+            contact_hypertext: "",
         };
     }
 };

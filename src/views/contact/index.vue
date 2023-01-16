@@ -9,7 +9,7 @@
                     <div>If you are seeking a research position:</div>
                 </div>
                 <div class="content">
-                    <RichTextWrapper :html="recruitHtml" />
+                    <RichTextWrapper :html="contactHtml" />
                 </div>
             </div>
             <div class="divide-line">
@@ -66,7 +66,7 @@
             <img src="https://dummyimage.com/600x400/c2c2c2/000000&text=Location" alt="实验室位置, The location of lab" style="width: 100%;display: block;">
 
         </div> -->
-        <RichTextWrapper :html="recruitHtml" />
+        <RichTextWrapper :html="contactHtml" />
     </Main>
 </template>
 <script setup lang='ts'>
@@ -78,10 +78,7 @@ import { onMounted, onUnmounted, ref } from 'vue';
 import { apiFetchContactHypertexts } from '../../api';
 
 const res = await apiFetchContactHypertexts();
-const recruitHtml = ref(res.recruit_hypertext);
-const sponsorHtml = ref(res.collaboration_sponsor_hypertext);
-const locHtml = ref(res.lab_office_hypertext);
-const contactHtml = ref(res.info_hypertext);
+const contactHtml = ref(res.contact_hypertext);
 
 </script>
 <style lang="scss" scoped>

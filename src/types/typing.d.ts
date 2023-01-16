@@ -72,8 +72,5 @@ declare type News = {
 }
 
 declare type ContactHyperTexts = {
-    collaboration_sponsor_hypertext: string,
-    info_hypertext: string,
-    lab_office_hypertext: string,
-    recruit_hypertext: string
+    contact_hypertext: string,
 }
