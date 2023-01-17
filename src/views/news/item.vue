@@ -19,7 +19,7 @@ import ZeroFiveLine from '../../components/ZeroFiveLine.vue';
 import RichTextWrapper from '../../components/RichTextWrapper.vue';
 import NotFound from '../404/index.vue';
 import { apiFetchNews } from '../../api';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 const prop = defineProps<{
     id: string
 }>()
@@ -28,6 +28,10 @@ const res = await apiFetchNews(prop.id)
 if (res) {
     data.value = res;
 }
+
+onMounted(() => {
+    document.title = data.value?.title || '新闻 / News';
+})
 </script>
 <style lang="scss" scoped>
 

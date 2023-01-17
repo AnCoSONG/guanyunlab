@@ -91,6 +91,12 @@ onMounted(async () => {
 
 // 展板区域
 const displayBoardImg = ref(data.value?.imgs[0])
+
+// 设置页面标题
+onMounted(() => {
+    document.title = data.value?.cn_name + '/' + data.value?.en_name || '项目 / Project'
+})
+
 </script>
 <style lang="scss" scoped>
 .item-main {

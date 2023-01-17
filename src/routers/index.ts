@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
     history: createWebHistory('/guanyunlab/'),
@@ -7,7 +7,7 @@ const router = createRouter({
             path: '/',
             name: 'home',
             component: () => import("views/home/index.vue"),
-            meta: { title: 'X Lab / X 实验室' }
+            meta: { title: '智慧形态实验室 / Guanyun Lab' }
         },
         {
             path: '/news/:id',
@@ -19,7 +19,7 @@ const router = createRouter({
             path: '/projects',
             name: 'projects',
             component: () => import("views/projects/list.vue"),
-            meta: { title: 'Project / 项目' }
+            meta: { title: '项目 / Project' }
         },
         {
             path: '/projects/:id',
@@ -31,7 +31,7 @@ const router = createRouter({
             path: '/members',
             name: 'members',
             component: () => import("views/members/list.vue"),
-            meta: {title: "Member / 成员"}
+            meta: {title: "成员 / Members"}
         },
         {
             path: '/members/:id',
@@ -43,19 +43,19 @@ const router = createRouter({
             path: '/publications',
             name: 'publications',
             component: () => import("views/publications/index.vue"),
-            meta: { title: "Publications / 出版" }
+            meta: { title: "出版物 / Publications" }
         },
         {
             path: '/about',
             name: 'about',
             component: () => import('views/about/index.vue'),
-            meta: { title: 'About / 关于'}
+            meta: { title: '关于 / About'}
         },
         {
             path: '/contact',
             name: 'contact',
             component: () => import('views/contact/index.vue'),
-            meta: { title: 'Contact / 联系我们'}
+            meta: { title: '联系 / Contact'}
         },
         {
             // path: '/:\w+',
