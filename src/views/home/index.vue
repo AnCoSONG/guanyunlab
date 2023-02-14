@@ -17,7 +17,7 @@ import News from './News.vue';
 import { apiFetchHomeHeros } from '../../api';
 import { reactive } from 'vue';
 const heros = reactive<HeroImg[]>([])
-const res = await apiFetchHomeHeros(4)
+const res = await apiFetchHomeHeros()
 heros.splice(0, heros.length, ...res)
 
 </script>

@@ -19,6 +19,12 @@
                 <MemberItem v-for="item in members.intern" class="item" :info="item"/>
             </div>
         </div>
+        <div class="wrapper">
+            <MainTitle type="middle" en="校友" cn="Graduate" class="subtitle" />
+            <div class="list">
+                <MemberItem v-for="item in members.graduate" class="item" :info="item"/>
+            </div>
+        </div>
     </Main>
 </template>
 <script setup lang='ts'>
@@ -29,11 +35,12 @@ import MemberItem from './MemberItem.vue';
 import { apiFetchMembers } from '../../api';
 import { reactive } from 'vue';
 
-const members = reactive<{ student: Member[], teacher: Member[], intern: Member[] }>({ student: [], teacher: [], intern: [] })
+const members = reactive<{ student: Member[], teacher: Member[], intern: Member[], graduate: Member[] }>({ student: [], teacher: [], intern: [], graduate: [] })
 const res = await apiFetchMembers()
 members.student = [...res.student]
 members.teacher = [...res.teacher]
 members.intern = [...res.intern]
+members.graduate = [...res.graduate]
 
 </script>
 <style lang="scss" scoped>

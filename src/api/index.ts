@@ -1,8 +1,8 @@
 import request from "../plugins/axios";
 
-export const apiFetchHomeHeros = async (count: number) => {
+export const apiFetchHomeHeros = async () => {
     const res = await request
-        .get<Project[]>("/project/random?count=" + count)
+        .get<Project[]>("/project/heroProjects")
         .catch((err) => {
             console.log(err);
             return null;
@@ -100,7 +100,7 @@ export const apiFetchProject = async (id: string) => {
 
 export const apiFetchMembers = async () => {
     const res = await request
-        .get<{ student: Member[]; teacher: Member[]; intern: Member[] }>(
+        .get<{ student: Member[]; teacher: Member[]; intern: Member[], graduate: Member[] }>(
             "/member/all"
         )
         .catch((err) => {
@@ -110,7 +110,7 @@ export const apiFetchMembers = async () => {
     if (res) {
         return res.data;
     } else {
-        return { student: [], teacher: [], intern: [] };
+        return { student: [], teacher: [], intern: [], graduate: [] };
     }
 };
 
