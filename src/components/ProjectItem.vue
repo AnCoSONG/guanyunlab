@@ -36,16 +36,24 @@ defineProps<{
 const projectItemImg = ref<HTMLImageElement|null>(null)
 let timeoutId: string | number | NodeJS.Timeout | undefined;
 let isListened = false
+const imgWidth = ref(0)
 
 const onResize = throttle(() => {
-    const rect = projectItemImg.value!.getBoundingClientRect()
-    projectItemImg.value!.style.height = rect.width + 'px'
-}, 100)
+    const width = projectItemImg.value!.offsetWidth
+    console.log('before timeout', width)
+
+    setTimeout(() => {
+        const width = projectItemImg.value!.offsetWidth
+        console.log('after timeout', width)
+        projectItemImg.value!.style.height = width + 'px'
+        imgWidth.value = width
+    }, 50)
+}, 200)
 
 const setupWatcher = () => {
     timeoutId = setTimeout(() => {
-        const rect = projectItemImg.value!.getBoundingClientRect()
-        projectItemImg.value!.style.height = rect.width + 'px'
+        const width = projectItemImg.value!.offsetWidth
+        projectItemImg.value!.style.height = width + 'px'
     }, 10)
     if(isListened) return
     window.addEventListener('resize', onResize)
