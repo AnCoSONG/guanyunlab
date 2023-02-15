@@ -104,9 +104,9 @@ const sanitizedHtml = computed(() => {
         height: auto;
         object-fit: fill;
 
-        &:hover {
-            filter: opacity(0.5);
-        }
+        // &:hover {
+        //     filter: opacity(0.5);
+        // }
 
         &.full {
             width: 100%;
@@ -117,6 +117,12 @@ const sanitizedHtml = computed(() => {
     &:deep(iframe) {
         aspect-ratio: 16/9;
         width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    &:deep(video) {
+        max-width: 100%;
         height: auto;
     }
 
