@@ -1,7 +1,7 @@
 <template>
     <HeroSwiper :hero-imgs="heros" enable-max-height/>
     <Main>
-        <CCC></CCC>
+        <!-- <CCC></CCC> -->
     </Main>
     <HomeSwiper></HomeSwiper>
     <Main>
