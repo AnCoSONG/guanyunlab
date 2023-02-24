@@ -1,18 +1,19 @@
 <template>
     <div class="project-item">
         <div class="top-line"></div>
-        <img :src="project_data.hero_img" alt="" class="project-item-img" loading="lazy" ref="projectItemImg"
-            @click="routeTo(project_data.id)"
-        >
+        <a :href="'/guanyunlab/projects/' + project_data.id" target="_blank" style="display:block;">
+            <img :src="project_data.hero_img" alt="" class="project-item-img" loading="lazy" ref="projectItemImg">
+        </a>
         <div class="info">
             <div v-if="mode == 'simple'" class="only-title" @click="routeTo(project_data.id)">
                 {{ project_data.cn_name }} / {{ project_data.en_name }}
             </div>
             <div v-if="mode == 'complete'" class="complete-info">
                 <div class="title" @click="routeTo(project_data.id)">{{ project_data.cn_name }} / {{ project_data.en_name }}</div>
-                <div class="short-abstract">{{ project_data.short_abstract.length > 100 ? project_data.short_abstract.slice(0, 100) + '...' : project_data.short_abstract }}
+                <!-- 取消short abstract显示 -->
+                <!-- <div class="short-abstract">{{ project_data.short_abstract.length > 100 ? project_data.short_abstract.slice(0, 100) + '...' : project_data.short_abstract }}
                     <router-link class="more-link" :to="`/projects/${project_data.id}`">More ›</router-link>
-                </div>
+                </div> -->
                 <div class="author-date-views">
                     <!-- <span class="first-author">{{ project_data.first_author }}</span> | -->
                     <span>{{ toMonthYear(project_data.create_date) }}</span>
@@ -87,7 +88,8 @@ onDeactivated(() => {
 })
 
 const routeTo = (id: string) => {
-    router.push('/projects/' + id)
+    window.open('/guanyunlab/projects/' + id, '_blank')
+    // router.push('/projects/' + id)
 }
 </script>
 <style lang="scss" scoped>

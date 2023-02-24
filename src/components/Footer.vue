@@ -28,7 +28,7 @@ import ZeroFiveLine from './ZeroFiveLine.vue';
     .main-footer {
         // background-color: red;
         // border-top: 1px solid $fgcolor;
-        padding-top: 24px;
+        padding-top: 2px;
         box-sizing: border-box;
         position: relative;
         // font-size: 14px;

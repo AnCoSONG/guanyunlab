@@ -40,10 +40,10 @@ const router = createRouter({
             props: true
         },
         {
-            path: '/publications',
-            name: 'publications',
+            path: '/publication',
+            name: 'publication',
             component: () => import("views/publications/index.vue"),
-            meta: { title: "出版物 / Publications" }
+            meta: { title: "出版 / Publication" }
         },
         {
             path: '/about',

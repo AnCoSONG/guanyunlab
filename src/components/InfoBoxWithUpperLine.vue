@@ -1,7 +1,7 @@
 <template>
     <div class="infobox">
         <ZeroFiveLine></ZeroFiveLine>
-        <div class="content">
+        <div class="content" :style="{'padding': props.padding + 'px 0px'}">
             <slot></slot>
         </div>
         <ZeroFiveLine v-if="last"></ZeroFiveLine>
@@ -10,7 +10,12 @@
 <script setup lang='ts'>
 import ZeroFiveLine from './ZeroFiveLine.vue';
 // import ZeroFiveLine from './ZeroFiveLine.vue';
-defineProps<{last?: boolean}>()
+const props = withDefaults(
+    defineProps<{last?: boolean, padding?: number}>(), {
+        last: false,
+        padding: 20
+    }
+)
 </script>
 <style lang="scss" scoped>
 .infobox {
@@ -19,7 +24,7 @@ defineProps<{last?: boolean}>()
     // border-top: 1px solid #14141488;
 
     .content {
-        padding: 20px 0px;
+        // padding: 20px 0px;
         box-sizing: border-box;
 
         @media (max-width: 700px) {

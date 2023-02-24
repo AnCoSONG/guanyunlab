@@ -1,12 +1,12 @@
 <template>
-    <SectionTitle en="Publications" cn="出版物"></SectionTitle>
+    <SectionTitle en="Publication" cn="出版"></SectionTitle>
     <Main>
-        <InfoBoxWithUpperLine v-for="item, index in publicationData">
+        <InfoBoxWithUpperLine v-for="item, index in publicationData" :padding="10">
             <div class="paper-item" >
                 <img class="img" :src="item.img" />
                 <div class="info">
-                    <div class="authors">{{item.authors}}</div>
                     <div class="title" @click="openPaper(item.href)">{{item.title}}</div>
+                    <div class="authors">{{item.authors}}</div>
                     <div class="venue">{{item.venue}}</div>
                 </div>
             </div>

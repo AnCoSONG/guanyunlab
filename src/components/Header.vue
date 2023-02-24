@@ -2,18 +2,19 @@
     <header class="global-header">
         <div class="labname">
             <div class="contact" @click="routeTo('/')">
-                <span class="labtitle"> {{labname}} </span>
+                <span class="labtitle"> {{ labname }} </span>
                 <span style="display: inline-block;" class="labsep">&nbsp;|&nbsp;</span>
-                <span class="labdesc">{{desc}}</span>
+                <span class="labdesc">{{ desc }}</span>
             </div>
             <div class="compact">
-                <div class="line1" @click="routeTo('/')">{{labname}}</div>
-                <div class="line2" @click="routeTo('/')">{{desc}}</div>
+                <div class="line1" @click="routeTo('/')">{{ labname }}</div>
+                <div class="line2" @click="routeTo('/')">{{ desc }}</div>
             </div>
         </div>
         <div class="subpages">
             <div class="btns">
-                <TextButton class="subpage-item" v-for="item, index in subpages" :text="item.text" @click="routeTo(`/${item.href}`)"/>
+                <TextButton style="font-size: 13px;" class="subpage-item" v-for="item, index in subpages" :text="item.text"
+                    @click="routeTo(`/${item.href}`)" />
             </div>
             <div class="menu">
                 <div class="menu-item" @click="menuShow = true">
@@ -22,8 +23,9 @@
                     <div class="line" id="line3"></div>
                 </div>
                 <Teleport to="body">
-                    <div class="menu-content" :class="{show: menuShow}">
-                        <TextButton class="subpage-item" v-for="item, index in subpages" :text="item.text" :href="item.href" @click="routeTo(`/${item.href}`)"/>
+                    <div class="menu-content" :class="{ show: menuShow }">
+                        <TextButton class="subpage-item" v-for="item, index in subpages" :text="item.text" :href="item.href"
+                            @click="routeTo(`/${item.href}`)" />
                         <div class="close-btn" @click="menuShow = false">×</div>
                     </div>
                 </Teleport>
@@ -50,8 +52,8 @@ const subpages = [
         href: 'projects'
     },
     {
-        text: '出版物/PUBLICATIONS',
-        href: 'publications'
+        text: '出版/PUBLICATION', // 不可数名词
+        href: 'publication'
     },
     {
         text: '成员/MEMBERS',
@@ -66,10 +68,10 @@ const subpages = [
 const menuShow = ref(false)
 
 const routeTo = (to: string) => {
-    if(menuShow.value) {
+    if (menuShow.value) {
         menuShow.value = false
     }
-    router.push({path: to})
+    router.push({ path: to })
 }
 // shape 0: default, shape 1: menu, shape 2: less title
 
@@ -89,6 +91,7 @@ onUnmounted(() => {
     box-sizing: border-box;
     font-size: 14px;
     padding: 37px 24px;
+    padding-bottom: 6px;
 
     @media (max-width: 700px) {
         // padding: 18.5px 12px;
@@ -116,13 +119,17 @@ onUnmounted(() => {
         }
 
         .contact {
-            .labtitle, .labsep, .labdesc {
+            &:hover {
+                color: #aaa;
+                cursor: pointer;
+            }
+
+            .labtitle,
+            .labsep,
+            .labdesc {
                 font-size: 16px;
                 font-weight: 600;
-                &:hover {
-                    color: #aaa;
-                    cursor: pointer;
-                }
+
             }
         }
 
@@ -131,11 +138,13 @@ onUnmounted(() => {
                 display: inline-block;
                 cursor: pointer;
                 font-size: 16px;
+
                 &:hover {
                     color: #aaa;
                     cursor: pointer;
                 }
             }
+
             .line2 {
                 cursor: pointer;
                 font-size: 12px;
@@ -170,11 +179,11 @@ onUnmounted(() => {
 
         @media (min-width: 1280px) {
             .btns {
-                display: flex!important;
+                display: flex !important;
             }
 
             .menu {
-                display: none!important;
+                display: none !important;
             }
         }
 
@@ -261,5 +270,4 @@ onUnmounted(() => {
         cursor: pointer;
         margin-top: 16px;
     }
-}
-</style>
+}</style>

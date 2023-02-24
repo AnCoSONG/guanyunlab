@@ -7,6 +7,13 @@
                 <MemberItem v-for="item in members.teacher" class="item" :info="item" />
             </div>
         </div>
+        <!-- 待修改数据库 -->
+        <!-- <div class="wrapper">
+            <MainTitle type="middle" en="博士后" cn="Postdoc" class="subtitle" />
+            <div class="list">
+                <MemberItem v-for="item in members.postdoc" class="item" :info="item"/>
+            </div>
+        </div> -->
         <div class="wrapper">
             <MainTitle type="middle" en="学生" cn="Student" class="subtitle" />
             <div class="list">

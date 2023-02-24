@@ -1,13 +1,14 @@
 <template>
     <HeroSwiper v-if="data" :hero-imgs="[{ src: data.hero_img, href: '#' }]" :not-route="true"
-        :enable-max-height="false" />
+        :enable-max-height="true" />
     <Main>
         <div class="item-main" v-if="data">
             <div class="basic-info">
                 <div class="name-date-views">
                     <MainTitle type="same" :en="data.cn_name" :cn="data.en_name" />
                     <div class="date">{{ toMonthYear(data.create_date) }}</div>
-                    <div class="views">({{ data.view_count }} Views)</div>
+                    <!-- 去掉View展示 -->
+                    <!-- <div class="views">({{ data.view_count }} Views)</div> -->
                 </div>
                 <div class="authors-abstracts">
                     <div class="authors">
@@ -170,6 +171,7 @@ onMounted(() => {
         position: relative;
         width: 100%;
         padding: 24px 0px;
+        padding-top: 12px;
         // padding-top: 0px;
     }
 
