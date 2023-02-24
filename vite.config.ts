@@ -2,11 +2,15 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import * as path from "path";
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
+import legacy from '@vitejs/plugin-legacy'
 
 // https://vitejs.dev/config/
 export default defineConfig({
     base: "/guanyunlab/",
-    plugins: [vue(), VueSetupExtend()],
+    plugins: [vue(), VueSetupExtend(), legacy({
+        targets: ['defaults']
+    })    
+    ],
     resolve: {
         alias: {
             "@": path.resolve(__dirname, "src"),
@@ -28,7 +32,4 @@ export default defineConfig({
             },
         },
     },
-    build: {
-        target: 'es2015',
-    }
 });
