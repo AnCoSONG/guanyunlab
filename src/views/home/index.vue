@@ -1,12 +1,14 @@
 <template>
     <HeroSwiper :hero-imgs="heros" enable-max-height/>
-    <Main>
-        <!-- <CCC></CCC> -->
-    </Main>
-    <HomeSwiper></HomeSwiper>
-    <Main>
-        <News></News>
-    </Main>
+    <div style="background-color: white; z-index: 1;">
+        <Main pad>
+            <!-- <CCC></CCC> -->
+        </Main>
+        <HomeSwiper></HomeSwiper>
+        <Main>
+            <News></News>
+        </Main>
+    </div>
 </template>
 <script setup lang='ts'>
 import HeroSwiper from '../../components/HeroSwiper.vue';

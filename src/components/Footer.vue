@@ -21,7 +21,8 @@ import ZeroFiveLine from './ZeroFiveLine.vue';
     padding-top: 60px;
     padding-bottom: 60px;
     box-sizing: border-box;
-    // background-color: blue;
+    z-index: 1;
+    background-color: white;
     @media (max-width: 700px) {
         padding: 24px;
     }

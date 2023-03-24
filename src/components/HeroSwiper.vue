@@ -60,7 +60,10 @@ const heroImgMaxHeight = computed(() => {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 80px;
+    // padding-bottom: 80px;
+    z-index: -1;
+    position: sticky;
+    top: 0;
 
     @media (max-width: 700px) {
         padding-bottom: 24px;

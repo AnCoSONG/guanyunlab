@@ -39,9 +39,11 @@ window.addEventListener('resize', debounce(() => {
 <style lang="scss" scoped>
 .home-page-swiper {
     // margin
+    position: relative;
     box-sizing: border-box;
     padding-bottom: 80px;
     display: flex;
+    background-color: white;
     flex-flow: nowrap row;
 
     .left-controller, .right-controller {

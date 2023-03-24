@@ -1,6 +1,7 @@
 <template>
     <div class="section-title">
         <MainTitle type="large" :en="cn" :cn="en"></MainTitle>
+        <slot></slot>
     </div>
 </template>
 <script setup lang='ts'>

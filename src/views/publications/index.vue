@@ -1,6 +1,9 @@
 <template>
-    <SectionTitle en="Publication" cn="出版"></SectionTitle>
+    <SectionTitle en="Publication" cn="出版">
+    </SectionTitle>
     <Main>
+        <div class="note"># Contributed Equally</div>
+        <div class="note">* Corresponding Author</div>
         <InfoBoxWithUpperLine v-for="item, index in publicationData" :padding="10">
             <div class="paper-item" >
                 <img class="img" :src="item.img" />
@@ -29,6 +32,11 @@ const openPaper = (to: string) => {
 }
 </script>
 <style lang="scss" scoped>
+
+.note {
+    color: #444;
+    font-size: 12px;
+}
 .paper-item {
     width: 100%;
     position: relative;

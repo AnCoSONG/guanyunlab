@@ -1,7 +1,7 @@
 <template>
     <HeroSwiper v-if="data" :hero-imgs="[{ src: data.hero_img, href: '#' }]" :not-route="true"
         :enable-max-height="true" />
-    <Main>
+    <Main pad>
         <div class="item-main" v-if="data">
             <div class="basic-info">
                 <div class="name-date-views">
