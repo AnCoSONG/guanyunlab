@@ -34,7 +34,7 @@ const openNews = (id: ID) => {
     // padding-bottom: 20px;
     // box-sizing: border-box;
     .news-title {
-        margin-bottom: 24px;
+        padding-bottom: 24px;
     }
 
     .news-item {

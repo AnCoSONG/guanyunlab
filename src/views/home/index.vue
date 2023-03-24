@@ -1,6 +1,6 @@
 <template>
     <HeroSwiper :hero-imgs="heros" enable-max-height/>
-    <div style="background-color: white; z-index: 1;">
+    <div style="background-color: white; z-index: 1;position: relative;">
         <Main pad>
             <!-- <CCC></CCC> -->
         </Main>
