@@ -1,4 +1,5 @@
 import request from "../plugins/axios";
+import { parseEnName } from "../utils";
 
 export const apiFetchHomeHeros = async () => {
     const res = await request
@@ -11,7 +12,7 @@ export const apiFetchHomeHeros = async () => {
         const heroImgs: HeroImg[] = res.data.map((item) => {
             return {
                 src: item.hero_img,
-                href: "/projects/" + item.id,
+                href: "/projects/" + parseEnName(item.en_name),
             };
         });
         return heroImgs;
@@ -91,6 +92,20 @@ export const apiFetchProject = async (id: string) => {
         console.log(err);
         return null;
     });
+    if (res) {
+        return res.data;
+    } else {
+        return null;
+    }
+};
+
+export const apiFetchProjectByEnName = async (enName: string) => {
+    const res = await request
+        .get<Project>("/project/queryByEN/" + enName)
+        .catch((err) => {
+            console.log(err);
+            return null;
+        });
     if (res) {
         return res.data;
     } else {

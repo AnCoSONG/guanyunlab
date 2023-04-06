@@ -3,7 +3,8 @@
         <div class="left-controller" @click="swiperRef?.slidePrev()">
             <img class="btn" :src="leftBtn" alt="right btn">
         </div>
-        <Swiper @swiper="(swiper) => swiperRef = swiper" :modules="modules" class="main-swiper" :space-between="24" :slides-per-view="perViews" :autoplay="{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}" :loop="true">
+        <Swiper @swiper="(swiper) => swiperRef = swiper" :modules="modules" class="main-swiper" :space-between="24" :slides-per-view="perViews" :autoplay="false" :loop="true"> 
+            <!-- :autoplay="{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}" -->
             <SwiperSlide v-for="item in projects">
                 <ProjectItem :project_data="item" mode="simple"></ProjectItem>
             </SwiperSlide>
@@ -45,6 +46,7 @@ window.addEventListener('resize', debounce(() => {
     display: flex;
     background-color: white;
     flex-flow: nowrap row;
+    z-index: 1;
 
     .left-controller, .right-controller {
         min-width: 14%;

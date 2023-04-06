@@ -1,15 +1,15 @@
 <template>
     <div class="project-item">
         <div class="top-line"></div>
-        <a :href="'/guanyunlab/projects/' + project_data.id" target="_blank" style="display:block;">
+        <a :href="'/guanyunlab/projects/' + parseEnName(project_data.en_name)" target="_blank" style="display:block;">
             <img :src="project_data.hero_img" alt="" class="project-item-img" loading="lazy" ref="projectItemImg">
         </a>
         <div class="info">
-            <div v-if="mode == 'simple'" class="only-title" @click="routeTo(project_data.id)">
+            <div v-if="mode == 'simple'" class="only-title" @click="routeTo(parseEnName(project_data.en_name))">
                 {{ project_data.cn_name }} / {{ project_data.en_name }}
             </div>
             <div v-if="mode == 'complete'" class="complete-info">
-                <div class="title" @click="routeTo(project_data.id)">{{ project_data.cn_name }} / {{ project_data.en_name }}</div>
+                <div class="title" @click="routeTo(parseEnName(project_data.en_name))">{{ project_data.cn_name }} / {{ project_data.en_name }}</div>
                 <!-- 取消short abstract显示 -->
                 <!-- <div class="short-abstract">{{ project_data.short_abstract.length > 100 ? project_data.short_abstract.slice(0, 100) + '...' : project_data.short_abstract }}
                     <router-link class="more-link" :to="`/projects/${project_data.id}`">More ›</router-link>
@@ -25,7 +25,7 @@
 </template>
 <script setup lang='ts'>
 import { onActivated, onDeactivated, onMounted, onUnmounted, ref } from 'vue';
-import { toMonthYear } from '../utils';
+import { toMonthYear, parseEnName } from '../utils';
 import { useRouter } from 'vue-router';
 import throttle from 'lodash.throttle'
 const router = useRouter()
@@ -87,8 +87,8 @@ onDeactivated(() => {
     clearWatcher()
 })
 
-const routeTo = (id: string) => {
-    window.open('/guanyunlab/projects/' + id, '_blank')
+const routeTo = (en_name: string) => {
+    window.open('/guanyunlab/projects/' + en_name, '_blank')
     // router.push('/projects/' + id)
 }
 </script>

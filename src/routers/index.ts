@@ -22,7 +22,7 @@ const router = createRouter({
             meta: { title: '项目 / Project' }
         },
         {
-            path: '/projects/:id',
+            path: '/projects/:en_name',
             name: 'project-item',
             component: () => import('views/projects/item.vue'),
             props: true

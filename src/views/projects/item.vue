@@ -48,20 +48,20 @@ export default {
 import { computed } from '@vue/reactivity';
 import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { apiFetchProject, apiIncrementProjectView } from '../../api';
+import { apiFetchProject, apiFetchProjectByEnName, apiIncrementProjectView } from '../../api';
 import HeroSwiper from '../../components/HeroSwiper.vue';
 import Main from '../../components/Main.vue';
 import MainTitle from '../../components/MainTitle.vue';
 import RichTextWrapper from '../../components/RichTextWrapper.vue';
 import ZeroFiveLine from '../../components/ZeroFiveLine.vue';
 import NotFound from '../404/index.vue';
-import { isViewed, setViewed, toMonthYear } from '../../utils';
+import { isViewed, setViewed, toMonthYear, parseEnName } from '../../utils';
 const router = useRouter()
 const props = defineProps<{
-    id: string
+    en_name: string
 }>()
 const data = ref<Project>()
-const res = await apiFetchProject(props.id)
+const res = await apiFetchProjectByEnName(parseEnName(props.en_name, true))
 if (res) {
     data.value = res;
 }
@@ -81,9 +81,9 @@ const heroImgs = computed(() => {
 
 onMounted(async () => {
     // 如果localStorage中没有该项目被查看过的标识，则更新该项目的浏览量
-    if (!isViewed(props.id)) {
-        await apiIncrementProjectView(props.id)
-        setViewed(props.id)
+    if (!isViewed(data.value?.id!)) {
+        await apiIncrementProjectView(data.value?.id!)
+        setViewed(data.value?.id!)
         console.log('view success')
     } else {
         console.log('have viewed')

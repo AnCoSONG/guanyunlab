@@ -40,3 +40,10 @@ export const setViewed = (id: string) => {
         localStorage.setItem('viewData', JSON.stringify({ [id]: true }))
     }
 }
+
+export const parseEnName = (en_name: string, parseBack=false) => {
+    if (parseBack) {
+        return en_name.replace(/_/g, ' ')
+    }
+    return en_name.replace(/ /g, '_')
+}
