@@ -82,7 +82,7 @@ import NProgress from 'nprogress';
 import "../styles/nprogress.scss";
 
 NProgress.configure({ easing: "ease", speed: 500, showSpinner: false });
-const defaultTitle = "Lab Home Page";
+const defaultTitle = "Guanyun Lab";
 router.beforeEach((to, from, next) => {
     NProgress.start();
     document.title = to.meta.title ? (to.meta.title as string) : defaultTitle;
