@@ -1,5 +1,5 @@
 <template>
-    <div class="hero-swiper">
+    <div class="hero-swiper" :class="{notSticky: issafari}">
         <Swiper :modules="modules" class="swiper"
             :autoplay="{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: false}"
             :pagination="{bulletActiveClass: 'swiper-active-bullet', clickable: true}"
@@ -46,6 +46,11 @@ const routeTo = (to: string) => {
     }
 }
 
+// 检测到safari则关闭sticky设置
+const issafari =
+    navigator.userAgent.indexOf('Safari') != -1 &&
+    navigator.userAgent.indexOf('Chrome') == -1;
+
 const heroImgMaxHeight = computed(() => {
     return window.innerHeight - document.querySelector('header.global-header')!.clientHeight - 13;
 })
@@ -56,7 +61,7 @@ const heroImgMaxHeight = computed(() => {
     // min-height: 300px;
     // background-color: #141414;
     // color: whitesmoke;
-    position: relative;
+    // position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,9 +70,13 @@ const heroImgMaxHeight = computed(() => {
     position: sticky;
     top: 0;
 
-    @media (max-width: 700px) {
-        padding-bottom: 24px;
+    &.notSticky {
+        position: relative;
     }
+
+    // @media (max-width: 700px) {
+    //     padding-bottom: 24px;
+    // }
 
     .swiper {
         width: 100%;
