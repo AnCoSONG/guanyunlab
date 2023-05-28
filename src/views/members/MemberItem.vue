@@ -1,6 +1,6 @@
 <template>
-    <div class="member" @click="routeTo(info.id)">
-        <img :src="info.avatar" class="avatar" ref="avatarRef">
+    <div class="member" @click="routeTo(parseEnName(info.en_name))">
+        <img :src="info.avatar" class="avatar" ref="avatarRef" v-if="!isGraduate">
         <div class="info">
             <div class="cn-name">{{info.cn_name}} / {{ info.en_name }} </div>
             <!-- <div class="en-name">{{info.en_name}}</div> -->
@@ -13,13 +13,19 @@
 <script setup lang='ts'>
 import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router'
-defineProps<{
-    info: Member
-}>()
+import { parseEnName } from '../../utils';
+withDefaults(defineProps<{
+    info: Member,
+    isGraduate: boolean
+}>(),
+    {
+        isGraduate: false
+    }
+)
 
 const router = useRouter()
-const routeTo = (id: ID) => {
-    router.push(`/members/${id}`)
+const routeTo = (en_name: string) => {
+    router.push(`/members/${en_name}`)
 }
 
 const avatarRef = ref<HTMLImageElement|null>(null)

@@ -1,6 +1,6 @@
 <template>
     <div class="news">
-        <MainTitle en="新闻" cn="News" type="large" class="news-title"></MainTitle>
+        <MainTitle v-if="props.withTitle" en="新闻" cn="News" type="large" class="news-title"></MainTitle>
         <InfoBoxWithUpperLine v-for="item, index in newss" :last="index == newss.length - 1">
             <div class="news-item">
                 <div class="news-item-title" @click="openNews(item.id)">{{ item.title }}</div>
@@ -17,6 +17,11 @@ import { apiFetchHomeNews } from '../../api';
 import { reactive } from 'vue';
 import SectionTitle from '../../components/SectionTitle.vue';
 // fetch news
+const props = withDefaults(defineProps<{
+    withTitle: boolean,
+}>(), {
+    withTitle: true
+})
 const newss = reactive<News[]>([])
 const res = await apiFetchHomeNews(10)
 newss.splice(0, newss.length, ...res)
@@ -54,14 +59,14 @@ const openNews = (id: ID) => {
         }
 
         .news-item-title {
-            margin-bottom: 8px;
+            margin-bottom: 4px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 13px;
 
-            @media (max-width: 700px) {
-                font-size: 14px;
-                margin-bottom: 4px;
-            }
+            // @media (max-width: 700px) {
+            //     font-size: 13px;
+            //     margin-bottom: 4px;
+            // }
 
         }
 

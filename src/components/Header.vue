@@ -48,6 +48,10 @@ const subpages = [
         href: 'about'
     },
     {
+        text: '新闻/NEWS',
+        href: 'news'
+    },
+    {
         text: '项目/PROJECTS',
         href: 'projects'
     },

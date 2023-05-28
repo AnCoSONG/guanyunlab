@@ -8,12 +8,12 @@
             </div>
         </div>
         <!-- 待修改数据库 -->
-        <!-- <div class="wrapper">
+        <div class="wrapper">
             <MainTitle type="middle" en="博士后" cn="Postdoc" class="subtitle" />
             <div class="list">
                 <MemberItem v-for="item in members.postdoc" class="item" :info="item"/>
             </div>
-        </div> -->
+        </div>
         <div class="wrapper">
             <MainTitle type="middle" en="学生" cn="Student" class="subtitle" />
             <div class="list">
@@ -29,7 +29,7 @@
         <div class="wrapper">
             <MainTitle type="middle" en="校友" cn="Graduate" class="subtitle" />
             <div class="list">
-                <MemberItem v-for="item in members.graduate" class="item" :info="item"/>
+                <MemberItem :is-graduate="true" v-for="item in members.graduate" class="item" :info="item"/>
             </div>
         </div>
     </Main>
@@ -42,12 +42,13 @@ import MemberItem from './MemberItem.vue';
 import { apiFetchMembers } from '../../api';
 import { reactive } from 'vue';
 
-const members = reactive<{ student: Member[], teacher: Member[], intern: Member[], graduate: Member[] }>({ student: [], teacher: [], intern: [], graduate: [] })
+const members = reactive<{ student: Member[], teacher: Member[], postdoc: Member[], intern: Member[], graduate: Member[] }>({ student: [], teacher: [], intern: [], graduate: [] })
 const res = await apiFetchMembers()
 members.student = [...res.student]
 members.teacher = [...res.teacher]
 members.intern = [...res.intern]
 members.graduate = [...res.graduate]
+members.postdoc = [...res.postdoc]
 
 </script>
 <style lang="scss" scoped>

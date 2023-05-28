@@ -129,6 +129,20 @@ export const apiFetchMembers = async () => {
     }
 };
 
+export const apiFetchMemberByEnName = async (enName: string) => {
+    const res = await request
+        .get<Member>("/member/queryByEN/" + enName)
+        .catch((err) => {
+            console.log(err);
+            return null;
+        });
+    if (res) {
+        return res.data;
+    } else {
+        return null;
+    }
+};
+
 export const apiFetchMember = async (id: string) => {
     const res = await request.get<Member>("/member/" + id).catch((err) => {
         console.log(err);

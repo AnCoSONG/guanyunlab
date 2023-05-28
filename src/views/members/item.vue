@@ -20,16 +20,17 @@
 import SectionTitle from '../../components/SectionTitle.vue';
 import Main from '../../components/Main.vue';
 import RichTextWrapper from '../../components/RichTextWrapper.vue';
-import { apiFetchMember } from '../../api';
+import { apiFetchMember, apiFetchMemberByEnName } from '../../api';
 import NotFound from '../404/index.vue';
 import { ref } from 'vue';
+import { parseEnName } from '../../utils';
 
 const props = defineProps<{
-    id: string
+    en_name: string
 }>()
-console.log(props.id)
+console.log(props.en_name)
 const data = ref<Member>()
-const res = await apiFetchMember(props.id)
+const res = await apiFetchMemberByEnName(parseEnName(props.en_name, true))
 if (res) {
     data.value = res;
 }

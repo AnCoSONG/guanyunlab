@@ -10,8 +10,14 @@ const router = createRouter({
             meta: { title: '智慧形态实验室 / Guanyun Lab' }
         },
         {
-            path: '/news/:id',
+            path: '/news',
             name: 'news',
+            component: () => import("views/news/list.vue"),
+            meta: { title: '新闻 / News' }
+        },
+        {
+            path: '/news/:id',
+            name: 'news-item',
             component: () => import("views/news/item.vue"),
             props: true
         },
@@ -34,7 +40,7 @@ const router = createRouter({
             meta: {title: "成员 / Members"}
         },
         {
-            path: '/members/:id',
+            path: '/members/:en_name',
             name: 'member-item',
             component: () => import("views/members/item.vue"),
             props: true
