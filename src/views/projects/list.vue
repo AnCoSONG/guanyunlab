@@ -20,17 +20,23 @@ projects.splice(0, projects.length, ...res)
     padding-top: 80px;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-row-gap: 40px;
     grid-column-gap: 40px;
 
     @media (min-width: 800px) and (max-width: 1300px) {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         grid-row-gap: 40px;
         grid-column-gap: 40px;
     }
 
-    @media (max-width: 800px) {
+    @media (min-width: 500px) and (max-width: 800px) {
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 30px;
+        grid-column-gap: 30px;
+    }
+
+    @media (max-width: 500px) {
         display: flex;
         flex-flow: wrap column;
         justify-content: flex-start;
