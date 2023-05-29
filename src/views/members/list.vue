@@ -42,7 +42,7 @@ import MemberItem from './MemberItem.vue';
 import { apiFetchMembers } from '../../api';
 import { reactive } from 'vue';
 
-const members = reactive<{ student: Member[], teacher: Member[], postdoc: Member[], intern: Member[], graduate: Member[] }>({ student: [], teacher: [], intern: [], graduate: [] })
+const members = reactive<{ student: Member[], teacher: Member[], postdoc: Member[], intern: Member[], graduate: Member[] }>({ student: [], teacher: [], postdoc: [], intern: [], graduate: [] })
 const res = await apiFetchMembers()
 members.student = [...res.student]
 members.teacher = [...res.teacher]

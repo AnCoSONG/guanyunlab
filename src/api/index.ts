@@ -115,7 +115,7 @@ export const apiFetchProjectByEnName = async (enName: string) => {
 
 export const apiFetchMembers = async () => {
     const res = await request
-        .get<{ student: Member[]; teacher: Member[]; intern: Member[], graduate: Member[] }>(
+        .get<{ student: Member[]; teacher: Member[]; postdoc: Member[], intern: Member[], graduate: Member[] }>(
             "/member/all"
         )
         .catch((err) => {
@@ -125,7 +125,7 @@ export const apiFetchMembers = async () => {
     if (res) {
         return res.data;
     } else {
-        return { student: [], teacher: [], intern: [], graduate: [] };
+        return { student: [], teacher: [], postdoc:[], intern: [], graduate: [] };
     }
 };
 
