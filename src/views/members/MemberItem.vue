@@ -1,11 +1,11 @@
 <template>
     <div class="member" @click="routeTo(parseEnName(info.en_name))">
-        <img :src="info.avatar" class="avatar" ref="avatarRef" v-if="!isGraduate">
+        <img :src="info.avatar" class="avatar" ref="avatarRef" v-if="!isGraduate" loading="lazy">
         <div class="info">
             <div class="cn-name">{{info.cn_name}} / {{ info.en_name }} </div>
             <!-- <div class="en-name">{{info.en_name}}</div> -->
             <div class="title">
-                {{info.cn_title}} / {{info.en_title}}
+                {{info.cn_title}} {{ isGraduate?"":"/" }} {{info.en_title}}
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@ import { useRouter } from 'vue-router'
 import { parseEnName } from '../../utils';
 withDefaults(defineProps<{
     info: Member,
-    isGraduate: boolean
+    isGraduate?: boolean
 }>(),
     {
         isGraduate: false

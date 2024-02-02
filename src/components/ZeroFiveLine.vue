@@ -48,6 +48,7 @@
         width: 100%;
         height: 1px;
         background: black;
+        // background: #0000008f;
         transform: scaleY(0.5);
     }
 }

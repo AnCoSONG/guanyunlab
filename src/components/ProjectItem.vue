@@ -102,7 +102,7 @@ const routeTo = (en_name: string) => {
         width: 100%;
         background-color: #141414;
         height: 2px;
-        margin-bottom: 10px;
+        margin-bottom: 4px;
     }
 
     .project-item-img {

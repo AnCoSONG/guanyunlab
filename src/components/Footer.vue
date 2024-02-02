@@ -48,7 +48,8 @@ import ZeroFiveLine from './ZeroFiveLine.vue';
         }
 
         .text {
-            font-size: 14px;
+            font-size: 12px;
+            color: #0000008f;
         }
 
         .logo {

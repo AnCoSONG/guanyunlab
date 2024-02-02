@@ -1,5 +1,5 @@
 <template>
-    <div class="hero-swiper" :class="{notSticky: issafari}">
+    <div class="hero-swiper" :class="{notSticky: issafari || true}">
         <Swiper :modules="modules" class="swiper"
             :autoplay="{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: false}"
             :pagination="{bulletActiveClass: 'swiper-active-bullet', clickable: true}"
@@ -62,6 +62,8 @@ const heroImgMaxHeight = computed(() => {
     // background-color: #141414;
     // color: whitesmoke;
     // position: relative;
+    padding: 0 14%;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -69,6 +71,10 @@ const heroImgMaxHeight = computed(() => {
     z-index: 0;
     position: sticky;
     top: 0;
+
+    @media (max-width: 700px) {
+        padding: 0 24px;
+    }
 
     &.notSticky {
         position: relative;

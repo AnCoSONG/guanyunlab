@@ -94,15 +94,16 @@ onUnmounted(() => {
     justify-content: space-between;
     box-sizing: border-box;
     font-size: 14px;
-    padding: 37px 24px;
+    padding: 37px 14%;
+    // padding: 37px 24px;
     padding-bottom: 6px;
 
     @media (max-width: 700px) {
-        // padding: 18.5px 12px;
+        padding: 24px;
     }
 
     .labname {
-        @media (min-width: 700px) {
+        @media (min-width: 1400px) {
             .contact {
                 display: block;
             }
@@ -112,7 +113,7 @@ onUnmounted(() => {
             }
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 1400px) {
             .contact {
                 display: none;
             }
@@ -171,7 +172,7 @@ onUnmounted(() => {
     .subpages {
         position: relative;
 
-        @media (max-width: 1280px) {
+        @media (max-width: 1200px) {
             .btns {
                 display: none !important;
             }
@@ -181,7 +182,7 @@ onUnmounted(() => {
             }
         }
 
-        @media (min-width: 1280px) {
+        @media (min-width: 1200px) {
             .btns {
                 display: flex !important;
             }
@@ -198,7 +199,7 @@ onUnmounted(() => {
             flex-flow: nowrap row;
 
             >* {
-                margin: 0px 20px;
+                margin: 0px 14px;
 
                 &:last-child {
                     margin-right: 0px;
@@ -274,4 +275,5 @@ onUnmounted(() => {
         cursor: pointer;
         margin-top: 16px;
     }
-}</style>
+}
+</style>
