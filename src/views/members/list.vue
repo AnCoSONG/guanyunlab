@@ -69,8 +69,17 @@ const updateImageWidth = (w: number) => {
 .postdoc, .ra {
     width: auto;
     margin-top: 40px;
+}
+
+.postdoc {
     @media (max-width: 700px) {
-        margin-top: 24px;
+        margin-top: 0px;
+    }
+}
+
+.ra {
+    @media (max-width: 700px) {
+        margin-top: 40px;
     }
 }
 
@@ -83,7 +92,9 @@ const updateImageWidth = (w: number) => {
     flex-flow: wrap row;
     justify-content: flex-start;
     align-items: flex-start;
+    gap: 0px 40px; // post doc和ra之间有40px的gap，gap相比margin的好处是如果换行gap不会撑大行，而margin会
 }
+
 .wrapper, .postdoc-ra-wrapper {
     // margin-top: 40px;
     // margin-bottom: 40px;
@@ -123,15 +134,18 @@ const updateImageWidth = (w: number) => {
     }
 
     .inline-list {
-
+        display: flex;
+        flex-flow: wrap row;
+        gap: 12px 40px; // 使用gap设置间距，不使用margin，因为margin会撑大行，而gap不会
         .item {
             width: v-bind(imageWidth);
-            margin-right: 40px;
+            // margin-right: 40px;
+            // margin-top: 12px;
             // box-sizing: border-box;
 
-            @media screen and (max-width: 700px) {
-                margin-right: 0px;
-            }
+            // @media screen and (max-width: 700px) {
+            //     margin-right: 0px;
+            // }
 
             // &:last-child {
             //     margin-right: 0px;
@@ -142,5 +156,11 @@ const updateImageWidth = (w: number) => {
             // }
         }
     }
+
+    
+
+    // .item.member:last-child {
+    //     margin-right: 0px;
+    // }
 }
 </style>
