@@ -127,6 +127,19 @@ const updateImageWidth = (w: number) => {
         .item {
             width: v-bind(imageWidth);
             margin-right: 40px;
+            // box-sizing: border-box;
+
+            @media screen and (max-width: 700px) {
+                margin-right: 0px;
+            }
+
+            // &:last-child {
+            //     margin-right: 0px;
+            // }
+
+            // &:first-child {
+            //     padding-right: 40px;
+            // }
         }
     }
 }
