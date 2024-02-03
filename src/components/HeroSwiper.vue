@@ -8,7 +8,7 @@
             <SwiperSlide class="swiper-slide" v-for="item in heroImgs">
                 <img class="hero-img" :class="{notRoute: notRoute}"
                     :src="item.src" alt="Hero Placeholder" :style="{maxHeight: enableMaxHeight ? heroImgMaxHeight + 'px' : 'initial'}" 
-                    loading="lazy" @click="routeTo(item.href)">
+                    @click="routeTo(item.href)">
             </SwiperSlide>
         </Swiper>
     </div>
