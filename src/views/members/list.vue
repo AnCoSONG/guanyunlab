@@ -79,7 +79,7 @@ const updateImageWidth = (w: number) => {
 
 .ra {
     @media (max-width: 700px) {
-        margin-top: 40px;
+        margin-top: 24px;
     }
 }
 
