@@ -49,7 +49,7 @@ export const apiFetchNews = async (id: string) => {
 
 export const apiFetchHomeProjects = async (count: number) => {
     const res = await request
-        .get<Project[]>("/project/random?count=" + count)
+        .get<Project[]>("/project/nprojects?count=" + count)
         .catch((err) => {
             console.log(err);
             return null;
@@ -115,7 +115,7 @@ export const apiFetchProjectByEnName = async (enName: string) => {
 
 export const apiFetchMembers = async () => {
     const res = await request
-        .get<{ student: Member[]; teacher: Member[]; postdoc: Member[], intern: Member[], graduate: Member[] }>(
+        .get<{ student: Member[]; teacher: Member[]; postdoc: Member[], intern: Member[], graduate: Member[], ra: Member[] }>(
             "/member/all"
         )
         .catch((err) => {
@@ -125,7 +125,7 @@ export const apiFetchMembers = async () => {
     if (res) {
         return res.data;
     } else {
-        return { student: [], teacher: [], postdoc:[], intern: [], graduate: [] };
+        return { student: [], teacher: [], postdoc:[], intern: [], graduate: [], ra: [] };
     }
 };
 

@@ -11,17 +11,22 @@
     </div>
 </template>
 <script setup lang='ts'>
-import { onMounted, ref } from 'vue';
+import { isRef, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router'
 import { parseEnName } from '../../utils';
-withDefaults(defineProps<{
+const {info, isGraduate, isRefer} = withDefaults(defineProps<{
     info: Member,
-    isGraduate?: boolean
+    isGraduate?: boolean,
+    isRefer?: boolean
 }>(),
     {
-        isGraduate: false
+        isGraduate: false,
+        isRefer: false
     }
 )
+
+const emits = defineEmits(['imgWidth'])
+
 
 const router = useRouter()
 const routeTo = (en_name: string) => {
@@ -30,10 +35,29 @@ const routeTo = (en_name: string) => {
 
 const avatarRef = ref<HTMLImageElement|null>(null)
 onMounted(() => {
-    setTimeout(() => {
-        const rect = avatarRef.value!.getBoundingClientRect()
-        avatarRef.value!.style.height = rect!.width + 'px'
-    }, 0 )
+    // setTimeout(() => {
+    //     const rect = avatarRef.value!.getBoundingClientRect()
+    //     avatarRef.value!.style.height = rect!.width + 'px'
+    // }, 0 )
+    // 订阅img的宽度变化
+    const observer = new ResizeObserver(entries => {
+        for (let entry of entries) {
+            const { width, height } = entry.contentRect;
+            avatarRef.value!.style.height = width + 'px'
+            if(isRefer) {
+                // console.log('emits')
+                emits('imgWidth', width)
+            }
+        }
+    });
+    if (!isGraduate) {
+        observer.observe(avatarRef.value!);
+    }
+
+    return () => {
+        observer.disconnect()
+    }
+
 })
 </script>
 <style lang="scss" scoped>
