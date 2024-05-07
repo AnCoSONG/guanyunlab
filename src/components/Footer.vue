@@ -18,13 +18,13 @@ import ZeroFiveLine from './ZeroFiveLine.vue';
     position: relative;
     width:100%;
     padding: 14%;
-    padding-top: 60px;
+    padding-top: 40px;
     padding-bottom: 60px;
     box-sizing: border-box;
     z-index: 1;
     background-color: white;
     @media (max-width: 700px) {
-        padding: 24px;
+        padding: 16px;
     }
     .main-footer {
         // background-color: red;
