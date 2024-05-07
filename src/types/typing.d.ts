@@ -63,7 +63,7 @@ declare type Member = {
     en_name: string;
     cn_title: string;
     en_title: string;
-    hypertext: string;
+    hypertext?: string;
 }
 
 declare type News = {

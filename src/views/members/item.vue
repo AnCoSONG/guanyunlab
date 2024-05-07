@@ -10,7 +10,7 @@
     </div>
     <Main>
         <div class="hyper-text-wrapper" v-if="data">
-            <RichTextWrapper :html="data.hypertext"></RichTextWrapper>
+            <RichTextWrapper :html="data.hypertext??''"></RichTextWrapper>
         </div>
         <NotFound v-else></NotFound>
     </Main>
