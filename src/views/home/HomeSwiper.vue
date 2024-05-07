@@ -42,7 +42,7 @@ window.addEventListener('resize', debounce(() => {
     // margin
     position: relative;
     box-sizing: border-box;
-    padding-bottom: 80px;
+    padding-bottom: 40px;
     display: flex;
     background-color: white;
     flex-flow: nowrap row;

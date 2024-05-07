@@ -3,7 +3,9 @@
     </div>
 </template>
 <script setup lang='ts'>
-
+withDefaults(defineProps<{scale?:number}>(), {
+    scale: 0.5,
+})
 </script>
 <style lang="scss" scoped>
 .zero-five-line {
@@ -49,7 +51,7 @@
         height: 1px;
         background: black;
         // background: #0000008f;
-        transform: scaleY(0.5);
+        transform: scaleY(v-bind(scale));
     }
 }
 </style>

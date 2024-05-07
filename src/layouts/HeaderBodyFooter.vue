@@ -15,7 +15,7 @@ import Footer from 'comps/Footer.vue';
     position: relative;
     // padding: 0px 24px;
     padding-top: 13px;
-    // padding-bottom: 20px;
+    padding-bottom: 1px;
     box-sizing: border-box;
     // background-color: white;
 }

@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<{
     en: string,
     cn: string,
     type: 'large' | 'middle' | 'same',
-    reverse: boolean,
+    reverse?: boolean,
 }>(), { reverse: false })
 </script>
 <style lang="scss" scoped>

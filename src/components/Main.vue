@@ -26,7 +26,7 @@ const props = withDefaults(defineProps<{
     }
 
     &.padTop {
-        padding-top: 80px;
+        padding-top: 60px;
         @media (max-width: 700px) {
             padding-top: 24px;
         }

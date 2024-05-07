@@ -1,10 +1,10 @@
 <template>
     <div class="news">
-        <MainTitle v-if="props.withTitle" en="新闻" cn="News" type="large" class="news-title"></MainTitle>
+        <MainTitle v-if="withTitle" :en="cn_title" :cn="en_title" type="large" class="news-title"></MainTitle>
         <InfoBoxWithUpperLine v-for="item, index in newss" :last="index == newss.length - 1">
             <div class="news-item">
-                <div class="news-item-title" @click="openNews(item.id)">{{ item.title }}</div>
-                <div class="news-item-date">UPDATE: {{ new Date(item.last_date).toLocaleDateString() }}</div>
+                <div class="news-item-title" @click="isProject? openProject(item) : openNews(item.id)">{{ isProject?item['cn_name'] + ' / ' + item['en_name']: item[title_key] }}</div>
+                <div class="news-item-date">{{ props.date_text }}: {{ new Date(item[last_date_key]).toLocaleDateString() }}</div>
             </div>
         </InfoBoxWithUpperLine>
     </div>
@@ -12,24 +12,40 @@
 <script setup lang='ts'>
 import MainTitle from '../../components/MainTitle.vue';
 import InfoBoxWithUpperLine from '../../components/InfoBoxWithUpperLine.vue';
-import { useRouter } from 'vue-router';
+import { Router, useRouter } from 'vue-router';
 import { apiFetchHomeNews } from '../../api';
-import { reactive } from 'vue';
+import { onMounted, reactive } from 'vue';
 import SectionTitle from '../../components/SectionTitle.vue';
+import { parseEnName } from '../../utils';
 // fetch news
 const props = withDefaults(defineProps<{
-    withTitle: boolean,
+    withTitle?: boolean,
+    cn_title?: string,
+    en_title?: string,
+    route_parent?: string,
+    title_key?: string,
+    last_date_key?: string,
+    date_text?: string,
+    isProject?: boolean,
+    newss: any[]
 }>(), {
-    withTitle: true
+    withTitle: true,
+    cn_title: '新闻',
+    en_title: 'News',
+    route_parent: 'news',
+    title_key: 'title',
+    last_date_key: 'last_date',
+    date_text: 'UPDATE',
+    isProject: false
 })
-const newss = reactive<News[]>([])
-const res = await apiFetchHomeNews(10)
-newss.splice(0, newss.length, ...res)
 
 const router = useRouter()
-
 const openNews = (id: ID) => {
-    router.push(`/news/${id}`)
+    router.push(`/${props.route_parent}/${id}`)
+}
+
+const openProject = (item: ProjectListItem) => {
+    router.push(`/projects/${parseEnName(item.en_name)}`)
 }
 </script>
 <style lang="scss" scoped>
