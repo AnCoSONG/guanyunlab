@@ -5,7 +5,7 @@
         <div class="item-main" v-if="data">
             <div class="basic-info">
                 <div class="name-date-views">
-                    <MainTitle type="same" :en="data.cn_name" :cn="data.en_name" />
+                    <MainTitle type="same" :en="data.cn_name" :cn="data.en_name" reverse />
                     <div class="date">{{ toMonthYear(data.create_date) }}</div>
                     <!-- 去掉View展示 -->
                     <!-- <div class="views">({{ data.view_count }} Views)</div> -->

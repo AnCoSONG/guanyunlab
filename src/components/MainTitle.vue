@@ -1,27 +1,29 @@
 <template>
-    <div class="main-title" :class="{large: type=='large', same: type=='same'}">
-        <span class="en">{{en}}</span>
+    <div class="main-title" :class="{large: props.type=='large', same: props.type=='same'}">
+        <span :class="props.reverse?'cn':'en'">{{props.en}}</span>
         <span class="slash">&nbsp;/&nbsp;</span>
-        <span class="cn">{{cn}}</span>
+        <span :class="props.reverse?'en':'cn'">{{props.cn}}</span>
     </div>
 </template>
 <script setup lang='ts'>
-defineProps<{
+const props = withDefaults(defineProps<{
     en: string,
     cn: string,
-    type: 'large' | 'middle' | 'same'
-}>()
+    type: 'large' | 'middle' | 'same',
+    reverse: boolean,
+}>(), { reverse: false })
 </script>
 <style lang="scss" scoped>
 .main-title {
     position: relative;
     color: #454545;
     cursor: default;
-    word-break: break-all;
+    word-break: break-word; // 必须留着，keep-all使名字成为一个整体，而break-word将整体分开
     line-height: 1.4;
 
     .en {
         font-size: 20px;
+        word-break: keep-all;
     }
 
     .slash {
@@ -30,6 +32,7 @@ defineProps<{
 
     .cn {
         font-size: 20px;
+        word-break: keep-all;
 
     }
 
