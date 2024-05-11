@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="wrapper" v-if="members.graduate.length > 0">
-            <MainTitle type="middle" en="校友" cn="Graduate" class="subtitle" />
+            <MainTitle type="middle" en="过往成员" cn="Alumni" class="subtitle" />
             <div class="list graduate">
                 <MemberItem :is-graduate="true" v-for="item in members.graduate" class="item" :info="item" />
             </div>

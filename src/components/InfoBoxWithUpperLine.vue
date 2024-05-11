@@ -4,7 +4,7 @@
         <div class="content" :style="{'padding': props.padding + 'px 0px'}">
             <slot></slot>
         </div>
-        <ZeroFiveLine v-if="last" :scale="0.5"></ZeroFiveLine>
+        <!-- <ZeroFiveLine v-if="last" :scale="0.5"></ZeroFiveLine> -->
     </div>
 </template>
 <script setup lang='ts'>
