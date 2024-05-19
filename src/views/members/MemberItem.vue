@@ -2,10 +2,11 @@
     <div class="member" @click="routeTo(parseEnName(info.en_name))">
         <img :src="info.avatar" class="avatar" ref="avatarRef" v-if="!isGraduate" loading="lazy">
         <div class="info">
-            <div class="cn-name">{{info.cn_name}} {{ isGraduate?"":"/" }} {{ info.en_name }} </div>
-            <!-- <div class="en-name">{{info.en_name}}</div> -->
+            <div class="cn-name">{{info.cn_name}} </div>
+            <div class="en-name">{{info.en_name}}</div>
             <div class="title">
-                {{info.cn_title}} {{ isGraduate?"":"/" }} {{info.en_title}}
+                {{info.en_title}}
+                <!-- {{info.cn_title}} {{ isGraduate?"":"/" }} {{info.en_title}} -->
             </div>
         </div>
     </div>
@@ -97,13 +98,15 @@ onMounted(() => {
 
         .en-name {
             color: #232323;
+            // color: #575757;
             font-size: 12px;
             font-weight: 400;
             line-height: 18px;
         }
 
         .title {
-            color: #575757;
+            color: #232323;
+            // color: #575757;
             font-size: 12px;
             font-weight: 400;
             line-height: 18px;

@@ -1,7 +1,7 @@
 <template>
     <div class="hero-swiper" :class="{notSticky: issafari || true}">
         <Swiper :modules="modules" class="swiper"
-            :autoplay="{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: false}"
+            :autoplay="{delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: false}"
             :pagination="{bulletActiveClass: 'swiper-active-bullet', clickable: true}"
             :loop="heroImgs.length > 1"
             >
