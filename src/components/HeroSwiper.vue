@@ -1,5 +1,5 @@
 <template>
-    <div class="hero-swiper" :class="{notSticky: issafari || true}" :style="{maxHeight: enableMaxHeight ? heroImgMaxHeight + 'px' : 'initial'}">
+    <div class="hero-swiper" :class="{notSticky: issafari || true}">
         <Swiper :modules="modules" class="swiper"
             :autoplay="{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: false}"
             :pagination="{bulletActiveClass: 'swiper-active-bullet', clickable: true}"
@@ -8,7 +8,9 @@
             <SwiperSlide class="swiper-slide" v-for="item in heroImgs">
                 <img class="hero-img" :class="{notRoute: notRoute}"
                     :src="item.src" alt="Hero Placeholder"
-                    @click="routeTo(item.href)">
+                    @click="routeTo(item.href)"
+                    :style="{maxHeight: enableMaxHeight ? heroImgMaxHeight + 'px' : 'initial'}"
+                    >
             </SwiperSlide>
         </Swiper>
     </div>
@@ -52,7 +54,7 @@ const issafari =
     navigator.userAgent.indexOf('Chrome') == -1;
 
 const heroImgMaxHeight = computed(() => {
-    return window.innerHeight - document.querySelector('header.global-header')!.clientHeight - 13;
+    return window.innerHeight - document.querySelector('header.global-header')!.clientHeight - 13 - 20;
 })
 </script>
 <style lang="scss" scoped>
