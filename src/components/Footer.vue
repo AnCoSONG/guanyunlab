@@ -1,5 +1,5 @@
 <template>
-    <footer class="global-footer">
+    <footer class="global-footer" :class="{zeroPadTop: listFooter}">
         <zero-five-line/>
         <div class="main-footer">
             <div class="text">
@@ -11,10 +11,19 @@
 </template>
 <script setup lang='ts'>
 import ZeroFiveLine from './ZeroFiveLine.vue';
+withDefaults(defineProps<{
+    listFooter?: boolean
+}>(), {
+    listFooter: false
+})
 
 </script>
 <style lang="scss" scoped>
 .global-footer {
+
+    &.zeroPadTop {
+        padding-top: 0px !important;
+    }
     position: relative;
     width:100%;
     padding: 14%;
@@ -29,7 +38,7 @@ import ZeroFiveLine from './ZeroFiveLine.vue';
     .main-footer {
         // background-color: red;
         // border-top: 1px solid $fgcolor;
-        padding-top: 2px;
+        // padding-top: 2px;
         box-sizing: border-box;
         position: relative;
         // font-size: 14px;

@@ -23,6 +23,7 @@ const props = withDefaults(defineProps<{
     box-sizing: border-box;
     @media (max-width: 700px) {
         padding: 24px;
+        padding-bottom: 0px;
     }
 
     &.padTop {

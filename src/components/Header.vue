@@ -52,7 +52,7 @@ const subpages = [
         href: 'news'
     },
     {
-        text: '项目/PROJECTS',
+        text: '研究/RESEARCH',
         href: 'projects'
     },
     {

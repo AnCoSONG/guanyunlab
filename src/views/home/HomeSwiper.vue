@@ -1,4 +1,5 @@
 <template>
+    <MainTitle class="home-swiper-title" en="项目" cn="Projects" type="large"/>
     <div class="home-page-swiper">
         <div class="left-controller" @click="swiperRef?.slidePrev()">
             <img class="btn" :src="leftBtn" alt="right btn">
@@ -23,6 +24,7 @@ import ProjectItem from '../../components/ProjectItem.vue';
 import { apiFetchHomeProjects } from '../../api';
 import leftBtn from '../../assets/arrow_left.svg'
 import rightBtn from '../../assets/arrow_right.svg'
+import MainTitle from '../../components/MainTitle.vue'
 
 const projects = reactive<ProjectListItem[]>([])
 const res = await apiFetchHomeProjects(8)
@@ -30,14 +32,24 @@ const res = await apiFetchHomeProjects(8)
 const swiperRef = ref()
 projects.splice(0, projects.length, ...res)
 const modules = [Autoplay, Navigation]
-const perViews = ref(Math.round(Math.min(window.innerWidth / 600, 4)))
+const perViews = ref(Math.round(Math.min(window.innerWidth / 450, 4)))
 
 window.addEventListener('resize', debounce(() => {
-    perViews.value = Math.round(Math.min(window.innerWidth / 600, 4))
+    perViews.value = Math.round(Math.min(window.innerWidth / 450, 4))
 }, 50))
 
 </script>
 <style lang="scss" scoped>
+.home-swiper-title {
+    padding: 0 14%;
+    padding-bottom: 24px;
+
+    @media (max-width: 700px) {
+        padding: 0 24px;
+        padding-bottom: 24px;
+    }
+}
+
 .home-page-swiper {
     // margin
     position: relative;

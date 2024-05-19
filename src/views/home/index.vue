@@ -1,5 +1,5 @@
 <template>
-    <HeroSwiper :hero-imgs="heros" enable-max-height />
+    <HeroSwiper :hero-imgs="heros" :enable-max-height="true" />
     <div style="background-color: white; z-index: 1;position: relative; margin-bottom: -1px;">
         <Main pad>
             <!-- <CCC></CCC> -->
@@ -7,8 +7,8 @@
         <HomeSwiper></HomeSwiper>
         <Main>
             <News :newss="newss"></News>
-            <News en_title="Projects" cn_title="项目" :newss="projects" title_key="cn_name" last_date_key="create_date"
-                route_parent="projects" date_text="CREATE" style="margin-top: 40px;" is-project></News>
+            <!-- <News en_title="Projects" cn_title="项目" :newss="projects" title_key="cn_name" last_date_key="create_date"
+                route_parent="projects" date_text="CREATE" style="margin-top: 40px;" is-project></News> -->
         </Main>
     </div>
 </template>
@@ -16,6 +16,7 @@
 import HeroSwiper from '../../components/HeroSwiper.vue';
 import Main from '../../components/Main.vue';
 import CCC from '../../components/CCC.vue';
+import MainTitle from '../../components/MainTitle.vue'
 import HomeSwiper from './HomeSwiper.vue';
 import News from './News.vue';
 import { apiFetchHomeHeros, apiFetchHomeNews, apiFetchHomeProjects } from '../../api';

@@ -41,11 +41,11 @@ const imgWidth = ref(0)
 
 const onResize = throttle(() => {
     const width = projectItemImg.value!.offsetWidth
-    console.log('before timeout', width)
+    // console.log('before timeout', width)
 
     setTimeout(() => {
         const width = projectItemImg.value!.offsetWidth
-        console.log('after timeout', width)
+        // console.log('after timeout', width)
         projectItemImg.value!.style.height = width + 'px'
         imgWidth.value = width
     }, 50)
@@ -61,12 +61,12 @@ const setupWatcher = () => {
     isListened = true
 }
 onMounted(() => {
-    console.log('mounted')
+    // console.log('mounted')
     setupWatcher()
 })
 
 onActivated(() => {
-    console.log('activated')
+    // console.log('activated')
     setupWatcher()
 })
 
@@ -78,12 +78,12 @@ const clearWatcher = () => {
 }
 
 onUnmounted(() => {
-    console.log('unmounted')
+    // console.log('unmounted')
     clearWatcher()
 })
 
 onDeactivated(() => {
-    console.log('deactivated')
+    // console.log('deactivated')
     clearWatcher()
 })
 
@@ -107,6 +107,7 @@ const routeTo = (en_name: string) => {
 
     .project-item-img {
         width: 100%;
+        aspect-ratio: 1 / 1;
         object-fit: cover;
         user-select: none;
         cursor: pointer;

@@ -1,5 +1,5 @@
 <template>
-    <div class="hero-swiper" :class="{notSticky: issafari || true}">
+    <div class="hero-swiper" :class="{notSticky: issafari || true}" :style="{maxHeight: enableMaxHeight ? heroImgMaxHeight + 'px' : 'initial'}">
         <Swiper :modules="modules" class="swiper"
             :autoplay="{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: false}"
             :pagination="{bulletActiveClass: 'swiper-active-bullet', clickable: true}"
@@ -7,7 +7,7 @@
             >
             <SwiperSlide class="swiper-slide" v-for="item in heroImgs">
                 <img class="hero-img" :class="{notRoute: notRoute}"
-                    :src="item.src" alt="Hero Placeholder" :style="{maxHeight: enableMaxHeight ? heroImgMaxHeight + 'px' : 'initial'}" 
+                    :src="item.src" alt="Hero Placeholder"
                     @click="routeTo(item.href)">
             </SwiperSlide>
         </Swiper>
@@ -100,6 +100,7 @@ const heroImgMaxHeight = computed(() => {
             .hero-img {
                 width: 100%;
                 height: 100%;
+                aspect-ratio: 3 / 2;
                 display: block;
                 object-fit: cover;
                 user-select: none;
@@ -107,6 +108,10 @@ const heroImgMaxHeight = computed(() => {
 
                 &.notRoute {
                     cursor: default;
+                }
+
+                @media screen and (max-width: 700px) {
+                    aspect-ratio: 1 / 1;
                 }
             }
 

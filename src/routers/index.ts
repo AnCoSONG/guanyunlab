@@ -25,7 +25,7 @@ const router = createRouter({
             path: '/projects',
             name: 'projects',
             component: () => import("views/projects/list.vue"),
-            meta: { title: '项目 / Project' }
+            meta: { title: '研究 / Research' }
         },
         {
             path: '/projects/:en_name',

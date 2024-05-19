@@ -15,8 +15,8 @@ defineProps<{en: string, cn: string}>()
     position: relative;
     display: block;
     padding: 0 14%;
-    margin-top: 100px;
-    margin-bottom: 40px;
+    margin-top: 50px;
+    margin-bottom: 20px;
 
     box-sizing: border-box;
     @media (max-width: 700px) {

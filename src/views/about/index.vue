@@ -1,5 +1,13 @@
 <template>
     <SectionTitle en="About" cn="关于"></SectionTitle>
+    <Main>
+        <p>
+            我们在科学的海洋里观察、提问、实验，把我们认为最好的、想象的未来，通过设计实现出来，变成现实。
+            <br>
+            In the vast ocean of science, we observe, question, and experiment, designing our envisioned future into
+            reality.
+        </p>
+    </Main>
     <HeroSwiper :hero-imgs="heroImgs" :not-route="true" class="about-swiper"></HeroSwiper>
     <Main>
         <!-- <CCC /> -->
@@ -56,7 +64,6 @@ heroImgs.push(...res.map((img) => ({
 
         &:last-child {
             margin-bottom: 0;
-        }
-    }
+        }}
 }
 </style>
