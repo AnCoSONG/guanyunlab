@@ -1,5 +1,5 @@
 <template>
-    <HeroSwiper :hero-imgs="heros" :enable-max-height="true" />
+    <HeroSwiper :hero-imgs="heros" :enable-max-height="true" enable-arrows />
     <div style="background-color: white; z-index: 1;position: relative; margin-bottom: -1px;">
         <Main pad>
             <!-- <CCC></CCC> -->

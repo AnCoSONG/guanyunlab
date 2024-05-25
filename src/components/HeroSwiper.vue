@@ -1,7 +1,7 @@
 <template>
     <div class="hero-swiper" :class="{notSticky: issafari || true}">
         <div class="left-controller" @click="swiperRef?.slidePrev()">
-            <img class="btn" :src="leftBtn" alt="right btn">
+            <img class="btn" :src="leftBtn" alt="right btn" v-if="enableArrows && heroImgs.length > 1" >
         </div>
         <Swiper @swiper="(swiper) => swiperRef = swiper" :modules="modules" class="swiper"
             :autoplay="{delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: false}"
@@ -16,8 +16,8 @@
                     >
             </SwiperSlide>
         </Swiper>
-        <div class="right-controller">
-            <img class="btn" :src="rightBtn" alt="left btn" @click="swiperRef?.slideNext()"/>
+        <div class="right-controller" >
+            <img class="btn" :src="rightBtn" alt="left btn" @click="swiperRef?.slideNext()" v-if="enableArrows && heroImgs.length > 1"/>
         </div>
     </div>
 </template>
@@ -40,10 +40,12 @@ const modules = [Autoplay, Navigation, Pagination]
 const props = withDefaults(defineProps<{
     heroImgs: HeroImg[],
     notRoute?: boolean,
-    enableMaxHeight?: boolean
+    enableMaxHeight?: boolean,
+    enableArrows?: boolean,
 }>(), {
     notRoute: false,
-    enableMaxHeight: false
+    enableMaxHeight: false,
+    enableArrows: false
 })
 
 const routeTo = (to: string) => {
