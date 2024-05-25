@@ -1,4 +1,5 @@
 <template>
+    <SectionTitle en="Research" cn="研究"></SectionTitle>
     <Main>
         <div class="project-grid">
             <ProjectItem v-for="item in projects" :project_data="item" mode="complete"></ProjectItem>
@@ -7,6 +8,7 @@
 </template>
 <script setup lang='ts'>
 import { reactive } from 'vue';
+import SectionTitle from '../../components/SectionTitle.vue';
 import { apiFetchProjects } from '../../api';
 import Main from '../../components/Main.vue';
 import ProjectItem from '../../components/ProjectItem.vue';
@@ -17,7 +19,7 @@ projects.splice(0, projects.length, ...res)
 </script>
 <style lang="scss" scoped>
 .project-grid {
-    padding-top: 80px;
+    // padding-top: 80px;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;

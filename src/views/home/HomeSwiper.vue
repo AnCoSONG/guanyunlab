@@ -1,5 +1,5 @@
 <template>
-    <MainTitle class="home-swiper-title" en="项目" cn="Projects" type="large"/>
+    <MainTitle class="home-swiper-title" en="研究" cn="Research" type="large"/>
     <div class="home-page-swiper">
         <div class="left-controller" @click="swiperRef?.slidePrev()">
             <img class="btn" :src="leftBtn" alt="right btn">
@@ -54,7 +54,7 @@ window.addEventListener('resize', debounce(() => {
     // margin
     position: relative;
     box-sizing: border-box;
-    padding-bottom: 40px;
+    // padding-bottom: 40px;
     display: flex;
     background-color: white;
     flex-flow: nowrap row;

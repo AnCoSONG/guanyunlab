@@ -5,7 +5,7 @@
             <!-- <CCC></CCC> -->
         </Main>
         <HomeSwiper></HomeSwiper>
-        <Main>
+        <Main pad>
             <News :newss="newss"></News>
             <!-- <News en_title="Projects" cn_title="项目" :newss="projects" title_key="cn_name" last_date_key="create_date"
                 route_parent="projects" date_text="CREATE" style="margin-top: 40px;" is-project></News> -->
