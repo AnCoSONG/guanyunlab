@@ -1,6 +1,9 @@
 <template>
     <div class="hero-swiper" :class="{notSticky: issafari || true}">
-        <Swiper :modules="modules" class="swiper"
+        <div class="left-controller" @click="swiperRef?.slidePrev()">
+            <img class="btn" :src="leftBtn" alt="right btn">
+        </div>
+        <Swiper @swiper="(swiper) => swiperRef = swiper" :modules="modules" class="swiper"
             :autoplay="{delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: false}"
             :pagination="{bulletActiveClass: 'swiper-active-bullet', clickable: true}"
             :loop="heroImgs.length > 1"
@@ -13,6 +16,9 @@
                     >
             </SwiperSlide>
         </Swiper>
+        <div class="right-controller">
+            <img class="btn" :src="rightBtn" alt="left btn" @click="swiperRef?.slideNext()"/>
+        </div>
     </div>
 </template>
 <script setup lang='ts'>
@@ -22,10 +28,13 @@ import 'swiper/scss';
 import 'swiper/scss/pagination'
 import 'swiper/scss/navigation'
 import 'swiper/scss/autoplay'
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { computed } from '@vue/reactivity';
+import leftBtn from '../assets/arrow_left.svg'
+import rightBtn from '../assets/arrow_right.svg'
 
+const swiperRef = ref()
 const router = useRouter()
 const modules = [Autoplay, Navigation, Pagination]
 const props = withDefaults(defineProps<{
@@ -64,7 +73,7 @@ const heroImgMaxHeight = computed(() => {
     // background-color: #141414;
     // color: whitesmoke;
     // position: relative;
-    padding: 0 14%;
+    // padding: 0 14%;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -74,9 +83,9 @@ const heroImgMaxHeight = computed(() => {
     position: sticky;
     top: 0;
 
-    @media (max-width: 700px) {
-        padding: 0 24px;
-    }
+    // @media (max-width: 700px) {
+    //     padding: 0 24px;
+    // }
 
     &.notSticky {
         position: relative;
@@ -85,6 +94,32 @@ const heroImgMaxHeight = computed(() => {
     // @media (max-width: 700px) {
     //     padding-bottom: 24px;
     // }
+    .left-controller, .right-controller {
+        min-width: 14%;
+        max-width: 14%;
+        display: flex;
+        flex-flow: nowrap column;
+        justify-content: center;
+        // align-items: center;
+
+        @media (max-width: 700px) {
+            min-width: 24px;
+            max-width: 24px;
+        }
+
+        .btn {
+            width: 100%;
+            max-width: 36px;
+            cursor: pointer;
+        }
+    }
+    .left-controller {
+        align-items: flex-end;
+    }
+
+    .right-controller {
+        align-items: flex-start;
+    }
 
     .swiper {
         width: 100%;

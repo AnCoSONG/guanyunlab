@@ -140,20 +140,29 @@ const updateImageWidth = (w: number) => {
                 grid-template-columns: 1fr;
             }
 
-            @media (min-width: 400px) and (max-width: 800px) {
-                grid-template-columns: 1fr 1fr 1fr;
+            @media (min-width: 400px) and (max-width: 600px) {
+                grid-template-columns: 1fr 1fr;
             }
 
-            @media (min-width: 800px) and (max-width: 1200px) {
+            @media (min-width: 600px) and (max-width: 800px) {
+                grid-template-columns: 1fr 1fr 1fr;
+
+            }
+ 
+            @media (min-width: 800px) and (max-width: 1000px) {
                 grid-template-columns: 1fr 1fr 1fr 1fr;
             }
 
-            @media (min-width: 1200px) and (max-width: 1600px) {
+            @media (min-width: 1000px) and (max-width: 1200px) {
                 grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
             }
 
-            @media (min-width: 1600px) {
+            @media (min-width: 1200px) and (max-width: 1600px) {
                 grid-template-columns: repeat(6, 1fr);
+            }
+
+            @media (min-width: 1600px) {
+                grid-template-columns: repeat(8, 1fr);
             }
         }
     }
