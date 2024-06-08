@@ -2,7 +2,7 @@
     <SectionTitle en="About" cn="关于"></SectionTitle>
     <Main>
         <p>
-            我们在科学的海洋里观察、提问、实验，把我们认为最好的、想象的未来，通过设计实现出来，变成现实。
+            我们在科学的海洋里观察、提问、实验，把我们认为最好的、想象的未来，通过设计实现出来，变成现实！
             <br>
             In the vast ocean of science, we observe, question, and experiment, designing our envisioned future into
             reality.

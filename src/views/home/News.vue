@@ -4,7 +4,7 @@
         <InfoBoxWithUpperLine v-for="item, index in newss" :last="index == newss.length - 1">
             <div class="news-item">
                 <div class="news-item-title" @click="isProject? openProject(item) : openNews(item.id)">{{ isProject?item['cn_name'] + ' / ' + item['en_name']: item[title_key] }}</div>
-                <div class="news-item-date">{{ props.date_text }}: {{ new Date(item[last_date_key]).toLocaleDateString() }}</div>
+                <div class="news-item-date">{{ props.date_text }}: {{ item['update_date'] === "" ? new Date(item['last_date']).toLocaleDateString():item['update_date'] }}</div>
             </div>
         </InfoBoxWithUpperLine>
     </div>
@@ -24,7 +24,6 @@ const props = withDefaults(defineProps<{
     en_title?: string,
     route_parent?: string,
     title_key?: string,
-    last_date_key?: string,
     date_text?: string,
     isProject?: boolean,
     newss: any[]
@@ -34,7 +33,6 @@ const props = withDefaults(defineProps<{
     en_title: 'News',
     route_parent: 'news',
     title_key: 'title',
-    last_date_key: 'last_date',
     date_text: 'UPDATE',
     isProject: false
 })

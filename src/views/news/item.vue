@@ -1,5 +1,5 @@
 <template>
-    <NewsHead :title="data.title" :date="data.last_date" v-if="data"></NewsHead>
+    <NewsHead :title="data.title" :date="data.update_date" v-if="data"></NewsHead>
 
     <Main>
         <!-- <ZeroFiveLine></ZeroFiveLine> -->

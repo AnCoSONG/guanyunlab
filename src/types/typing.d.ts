@@ -71,6 +71,7 @@ declare type News = {
     title: string;
     last_date: string;
     hypertext: string;
+    update_date: string;
 }
 
 declare type ContactHyperTexts = {
