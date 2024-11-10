@@ -31,7 +31,11 @@ const emits = defineEmits(['imgWidth'])
 
 const router = useRouter()
 const routeTo = (en_name: string) => {
-    router.push(`/members/${en_name}`)
+    // router.push(`/members/${en_name}`)
+    window.open(
+        `members/${en_name}`,
+        '_blank'
+    )
 }
 
 const avatarRef = ref<HTMLImageElement|null>(null)
