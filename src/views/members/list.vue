@@ -50,6 +50,7 @@ import MainTitle from '../../components/MainTitle.vue';
 import MemberItem from './MemberItem.vue';
 import { apiFetchMembers } from '../../api';
 import { onMounted, reactive, ref } from 'vue';
+import { reOrderGraduate } from './utils'
 
 const members = reactive<{ student: Member[], teacher: Member[], postdoc: Member[], intern: Member[], graduate: Member[], ra: Member[] }>({ student: [], teacher: [], postdoc: [], intern: [], graduate: [], ra: [] })
 const res = await apiFetchMembers()
@@ -57,6 +58,7 @@ members.student = [...res.student]
 members.teacher = [...res.teacher]
 members.intern = [...res.intern]
 members.graduate = [...res.graduate]
+reOrderGraduate(members.graduate) // sort in place
 members.postdoc = [...res.postdoc]
 members.ra = [...res.ra]
 
