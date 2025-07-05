@@ -10,7 +10,7 @@
         </div>
         <!-- 待修改数据库 -->
         <div class="postdoc-ra-wrapper" v-if="members.ra.length > 0 || members.postdoc.length > 0">
-            <div class="postdoc">
+            <div class="postdoc" v-if="members.postdoc.length > 0">
                 <MainTitle type="middle" en="博士后" cn="Postdoc" class="subtitle" />
                 <div class="inline-list">
                     <MemberItem v-for="item in members.postdoc" class="item" :info="item" />
