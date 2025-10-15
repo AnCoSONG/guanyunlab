@@ -61,11 +61,27 @@ export const apiFetchHomeProjects = async (count: number) => {
     }
 };
 
-export const apiFetchPapers = async () => {
-    const res = await request.get<Publication[]>("/paper/all").catch((err) => {
-        console.log(err);
-        return null;
-    });
+export const apiFetchPapers = async (year?: number) => {
+    const res = await request
+        .get<Publication[]>(`/paper/all${year ? "?year=" + year : ""}`)
+        .catch((err) => {
+            console.log(err);
+            return null;
+        });
+    if (res) {
+        return res.data;
+    } else {
+        return [];
+    }
+};
+
+export const apiFetchPaperYearOptions = async () => {
+    const res = await request
+        .get<number[]>(`/paper/year-options`)
+        .catch((err) => {
+            console.log(err);
+            return null;
+        });
     if (res) {
         return res.data;
     } else {
@@ -115,9 +131,14 @@ export const apiFetchProjectByEnName = async (enName: string) => {
 
 export const apiFetchMembers = async () => {
     const res = await request
-        .get<{ student: Member[]; teacher: Member[]; postdoc: Member[], intern: Member[], graduate: Member[], ra: Member[] }>(
-            "/member/all"
-        )
+        .get<{
+            student: Member[];
+            teacher: Member[];
+            postdoc: Member[];
+            intern: Member[];
+            graduate: Member[];
+            ra: Member[];
+        }>("/member/all")
         .catch((err) => {
             console.log(err);
             return null;
@@ -125,7 +146,14 @@ export const apiFetchMembers = async () => {
     if (res) {
         return res.data;
     } else {
-        return { student: [], teacher: [], postdoc:[], intern: [], graduate: [], ra: [] };
+        return {
+            student: [],
+            teacher: [],
+            postdoc: [],
+            intern: [],
+            graduate: [],
+            ra: [],
+        };
     }
 };
 
@@ -195,4 +223,4 @@ export const apiIncrementProjectView = async (id: string) => {
     } else {
         return null;
     }
-}
+};

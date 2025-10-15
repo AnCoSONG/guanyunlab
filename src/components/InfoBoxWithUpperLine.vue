@@ -13,7 +13,7 @@ import ZeroFiveLine from './ZeroFiveLine.vue';
 const props = withDefaults(
     defineProps<{last?: boolean, padding?: number}>(), {
         last: false,
-        padding: 20
+        padding: 20,
     }
 )
 </script>
