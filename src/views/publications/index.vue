@@ -175,7 +175,7 @@ const filterByYear = async (year: number) => {
         }
 
         .award {
-            font-weight: 400;
+            font-weight: 600;
             font-size: 12px;
             color: #b36b00;
         }
