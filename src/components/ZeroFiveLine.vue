@@ -52,6 +52,8 @@ withDefaults(defineProps<{scale?:number}>(), {
         background: black;
         // background: #0000008f;
         transform: scaleY(v-bind(scale));
+        top: 0px;
+        margin-top: calc(-1px + (1px * v-bind(scale)));
     }
 }
 </style>

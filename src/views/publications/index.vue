@@ -32,7 +32,11 @@
                     <div class="info">
                         <div class="title" @click="openPaper(item.href)">{{ item.title }}</div>
                         <div class="authors">{{ item.authors }}</div>
-                        <div class="venue">{{ item.venue }}</div>
+                        <div class="venue">
+                            <span>{{ item.venue }}</span>
+                            <span class="award" v-if="item.award">&nbsp;&nbsp;{{ item.award }}</span>
+                        </div>
+                        <!-- <div class="award">{{ item.award }}</div> -->
                     </div>
                 </div>
             </InfoBoxWithUpperLine>
@@ -47,10 +51,11 @@ import { reactive, ref } from 'vue';
 import { apiFetchPaperYearOptions, apiFetchPapers } from '../../api';
 
 const publicationData: Publication[] = reactive([])
-const res = await apiFetchPapers()
-publicationData.splice(0, publicationData.length, ...res)
 const yearsOptions = await apiFetchPaperYearOptions()
-const selectedYear = ref(-1)
+const mockYearOptions = [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015]
+const selectedYear = ref(yearsOptions[0] || -1)
+const res = await apiFetchPapers(selectedYear.value === -1 ? undefined : selectedYear.value)
+publicationData.splice(0, publicationData.length, ...res)
 const loading = ref(false)
 
 const openPaper = (to: string) => {
@@ -89,13 +94,16 @@ const filterByYear = async (year: number) => {
     position: relative;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
-    overflow: auto;
+    margin-top: 16px;
+    // overflow: auto;
 
     &-item {
-        margin-top: 16px;
-        font-size: 16px;
-        color: #444;
+        font-size: 14px;
+        color: #454545;
+        font-weight: 500;
+
         cursor: pointer;
         padding: 0px 12px;
 
@@ -164,6 +172,12 @@ const filterByYear = async (year: number) => {
             font-weight: 400;
             font-size: 12px;
             color: #747474;
+        }
+
+        .award {
+            font-weight: 400;
+            font-size: 12px;
+            color: #b36b00;
         }
     }
 
