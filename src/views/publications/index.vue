@@ -34,7 +34,7 @@
                         <div class="authors">{{ item.authors }}</div>
                         <div class="venue">
                             <span>{{ item.venue }}</span>
-                            <span class="award" v-if="item.award">&nbsp;&nbsp;{{ item.award }}</span>
+                            <span class="award" v-if="item.award">{{ item.award }}</span>
                         </div>
                         <!-- <div class="award">{{ item.award }}</div> -->
                     </div>
@@ -172,9 +172,11 @@ const filterByYear = async (year: number) => {
             font-weight: 400;
             font-size: 12px;
             color: #747474;
+            word-wrap: break-word;
         }
 
         .award {
+            margin-left: 4px;
             font-weight: 600;
             font-size: 12px;
             color: #b36b00;
